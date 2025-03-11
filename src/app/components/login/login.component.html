@@ -1,0 +1,21 @@
+<div class="login-container">
+    <h2>Login</h2>
+    <form (ngSubmit)="login()">
+      <div>
+        <label for="email">Email</label>  <!-- Cambia username por email -->
+        <input type="email" id="email" [(ngModel)]="email" name="email" required />  <!-- Cambia username por email -->
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" [(ngModel)]="password" name="password" required />
+      </div>
+      <button type="submit" [disabled]="loading">Login</button> <!-- Deshabilitar el botón si está cargando -->
+    </form>
+    
+    <div *ngIf="loading" class="loading-spinner">
+      Cargando...
+    </div>
+  
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  </div>
+  
