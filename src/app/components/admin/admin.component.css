@@ -1,0 +1,173 @@
+/* Estilos para el AdminComponent */
+.admin-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem;
+    margin-top: 60px;
+    min-height: calc(100vh - 60px);
+    background-color: transparent;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+.panel-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #fff;
+    opacity: 0;
+    animation: fadeIn 1s 0.5s forwards;
+}
+
+.panel-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #bb00ff;
+    animation: glow 3s infinite alternate;
+}
+
+.panel-header p {
+    font-size: 1rem;
+    color: #fff;
+    opacity: 0.8;
+}
+
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Botones más pequeños */
+    gap: 1rem;
+    max-width: 800px;
+    width: 100%;
+    padding: 1rem;
+    opacity: 0;
+    animation: slideUp 1s 1s forwards;
+}
+
+.button-card {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 12px; /* Borde más suave */
+    padding: 0.6rem; /* Menos padding */
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 12px rgba(128, 0, 128, 0.3); /* Sombra más suave */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 120px; /* Más pequeño */
+    font-family: 'Poppins', sans-serif; /* Fuente más moderna */
+    opacity: 0;
+    animation: fadeIn 1s 1.5s forwards;
+}
+
+.button-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 18px #bb00ff, 0 0 28px #bb00ff;
+    cursor: pointer;
+    background-color: rgba(128, 0, 128, 0.8); /* Fondo más oscuro al hacer hover */
+}
+
+.card-icon {
+    font-size: 1.6rem; /* Aún más pequeño */
+    color: #bb00ff;
+    margin-bottom: 0.6rem;
+    transition: color 0.3s;
+}
+
+.button-card:hover .card-icon {
+    color: #fff;
+}
+
+.button-card h3 {
+    font-size: 0.9rem; /* Texto más pequeño */
+    color: #fff;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 1px; /* Espaciado entre letras */
+    transition: color 0.3s;
+}
+
+.button-card:hover h3 {
+    color: #bb00ff;
+}
+
+/* Animación de neón */
+@keyframes glow {
+    0% {
+        color: #bb00ff;
+        text-shadow: 0 0 10px #bb00ff, 0 0 30px #bb00ff, 0 0 50px #bb00ff;
+    }
+    50% {
+        color: #ff00ff;
+        text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff;
+    }
+    100% {
+        color: #bb00ff;
+        text-shadow: 0 0 10px #bb00ff, 0 0 30px #bb00ff, 0 0 50px #bb00ff;
+    }
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Animación de deslizamiento hacia arriba */
+@keyframes slideUp {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Efectos adicionales de transición */
+@keyframes neonGlow {
+    0% {
+        box-shadow: 0 0 10px #bb00ff, 0 0 30px #bb00ff, 0 0 60px #bb00ff;
+    }
+    50% {
+        box-shadow: 0 0 20px #ff00ff, 0 0 50px #ff00ff, 0 0 80px #ff00ff;
+    }
+    100% {
+        box-shadow: 0 0 10px #bb00ff, 0 0 30px #bb00ff, 0 0 60px #bb00ff;
+    }
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+    .panel-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .button-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .button-card {
+        height: 100px; /* Más pequeño en pantallas medianas */
+    }
+}
+
+@media (max-width: 480px) {
+    .panel-header h1 {
+        font-size: 1.4rem;
+    }
+
+    .button-container {
+        grid-template-columns: 1fr;
+    }
+
+    .button-card {
+        height: 90px; /* Botones más pequeños en pantallas pequeñas */
+    }
+}

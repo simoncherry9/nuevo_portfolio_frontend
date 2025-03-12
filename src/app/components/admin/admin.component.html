@@ -1,1 +1,54 @@
-<p>admin works!</p>
+<app-header></app-header>
+<!-- admin.component.html -->
+<div class="admin-panel">
+  <div class="panel-header">
+    <h1>Panel de Administración</h1>
+    <p class="mt-4">Administrá tu portfolio fácilmente</p>
+  </div>
+  
+  <div class="button-container">
+    <div class="button-card" routerLink="/blog">
+      <div class="card-icon">
+        <i class="fas fa-pencil-alt"></i>
+      </div>
+      <h3>Blogs</h3>
+    </div>
+    <div class="button-card" routerLink="/experiences">
+      <div class="card-icon">
+        <i class="fas fa-briefcase"></i>
+      </div>
+      <h3>Experiencias</h3>
+    </div>
+    <div class="button-card" routerLink="/images">
+      <div class="card-icon">
+        <i class="fas fa-images"></i>
+      </div>
+      <h3>Imágenes</h3>
+    </div>
+    <div class="button-card" routerLink="/projects">
+      <div class="card-icon">
+        <i class="fas fa-project-diagram"></i>
+      </div>
+      <h3>Proyectos</h3>
+    </div>
+    <div class="button-card" routerLink="/skills">
+      <div class="card-icon">
+        <i class="fas fa-cogs"></i>
+      </div>
+      <h3>Skills</h3>
+    </div>
+    <div class="button-card" routerLink="/sociallinks">
+      <div class="card-icon">
+        <i class="fas fa-link"></i>
+      </div>
+      <h3>Redes Sociales</h3>
+    </div>
+    <div class="button-card" routerLink="/testimonials">
+      <div class="card-icon">
+        <i class="fas fa-comment-alt"></i>
+      </div>
+      <h3>Testimonios</h3>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
