@@ -1,26 +1,25 @@
-/* Estilos del Footer */
 footer {
-    background-color: transparent; /* Fondo oscuro */
-    color: #fff; /* Texto blanco */
+    background-color: transparent; 
+    color: #fff; 
     text-align: center;
     padding: 1rem;
     font-size: 0.9rem;
-    border-top: 2px solid #bb00ff; /* Línea de separación con color */
+    border-top: 2px solid #bb00ff; 
     position: relative;
     bottom: 0;
     width: 100%;
-    font-family: 'Poppins', sans-serif; /* Mismo estilo de fuente */
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
 }
 
 footer a {
-    color: #bb00ff; /* Enlaces con el mismo color que el diseño */
+    color: #bb00ff;
     text-decoration: none;
     transition: color 0.3s;
 }
 
 footer a:hover {
-    color: #fff; /* Cambio de color al pasar el ratón */
+    color: #fff;
 }
 
 footer p {
@@ -42,7 +41,7 @@ footer .social-icons a:hover {
     transform: scale(1.2);
 }
 
-/* Animación de entrada para el footer */
+
 @keyframes fadeInFooter {
     0% {
         opacity: 0;

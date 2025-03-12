@@ -1,6 +1,5 @@
 <div class="login-container d-flex justify-content-center align-items-center">
   <div class="login-box">
-    <!-- Icono que sobresale del contenedor -->
     <div class="login-icon-container">
       <img src="../../../assets/icono.png" alt="Icono de Seguridad" class="login-icon" />
     </div>
@@ -20,7 +19,6 @@
           aria-label="Correo electrónico"
           [pattern]="'^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'"
         />
-        <!-- Mensaje de error de formato de correo -->
         <div *ngIf="email && !isEmailValid(email)" class="error-message">
           El correo debe tener un formato válido.
         </div>
@@ -36,7 +34,6 @@
           required
           aria-label="Contraseña"
         />
-        <!-- Mensaje de error si la contraseña está vacía -->
         <div *ngIf="password && password.trim() === ''" class="error-message">
           La contraseña no puede estar vacía.
         </div>

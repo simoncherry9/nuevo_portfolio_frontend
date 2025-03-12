@@ -1,4 +1,3 @@
-/* Estilos generales */
 body {
     background-color: #1a1a1a;
     color: #fff;
@@ -31,12 +30,12 @@ body {
     max-width: 400px;
     animation: glow 3s infinite alternate;
     position: relative;
-    margin-top: 60px; /* Espacio para el icono que sobresale */
+    margin-top: 60px; 
   }
   
   .login-icon-container {
     position: absolute;
-    top: -60px; /* Ajusta la posición del icono */
+    top: -60px; 
     left: 50%;
     transform: translateX(-50%);
     width: 80px;
@@ -113,7 +112,6 @@ body {
     margin-top: 0.5rem;
   }  
   
-  /* Animaciones */
   @keyframes glow {
     0% {
       border-color: #bb00ff;

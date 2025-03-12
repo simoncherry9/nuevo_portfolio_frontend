@@ -19,25 +19,21 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  // Método para validar el formato del correo electrónico
   public isEmailValid(email: string): boolean {
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return emailPattern.test(email);
   }
 
-  // Método de login
   login(): void {
     this.loading = true;
     this.errorMessage = '';
 
-    // Validación de correo electrónico
     if (!this.isEmailValid(this.email)) {
       this.loading = false;
       this.errorMessage = 'Por favor, ingresa un correo electrónico válido.';
-      return; // Evita que se envíe la solicitud si el correo no es válido
+      return;
     }
 
-    // Validación de contraseña
     if (this.password.trim() === '') {
       this.loading = false;
       this.errorMessage = 'La contraseña no puede estar vacía.';
@@ -47,11 +43,10 @@ export class LoginComponent {
     this.authService.login(this.email, this.password).subscribe({
       next: (response) => {
         this.loading = false;
-        this.authService.saveToken(response.token); // Guarda el token en localStorage
+        this.authService.saveToken(response.token);
 
-        // Redirige después de un pequeño retraso para asegurarse de que el token se haya guardado
         setTimeout(() => {
-          this.router.navigate(['/admin']);  // Redirige a /admin
+          this.router.navigate(['/admin']);  
         }, 100);
       },
       error: (error) => {

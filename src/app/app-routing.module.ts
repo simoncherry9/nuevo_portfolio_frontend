@@ -15,10 +15,10 @@ import { TestimonialsComponent } from './components/testimonials/testimonials.co
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },   // Ruta de login (sin AuthGuard)
-  { path: 'portfolio', component: PortfolioComponent }, // Ruta pública para el portfolio
+  { path: 'login', component: LoginComponent },   
+  { path: 'portfolio', component: PortfolioComponent }, 
 
-  // Rutas protegidas por AuthGuard
+  
   {
     path: 'admin',
     canActivate: [AuthGuard],
@@ -33,10 +33,10 @@ const routes: Routes = [
   { path: 'sociallinks', component: SociallinksComponent, canActivate: [AuthGuard] },
   { path: 'testimonials', component: TestimonialsComponent, canActivate: [AuthGuard] },
 
-  // Redirección por defecto a la ruta portfolio cuando no se especifica ninguna ruta
+  
   { path: '', redirectTo: '/portfolio', pathMatch: 'full' },
 
-  // Redirección para rutas no definidas
+  
   { path: '**', redirectTo: '/portfolio' }
 ];
 
