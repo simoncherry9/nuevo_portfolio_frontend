@@ -1,0 +1,242 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem;
+    margin-top: 60px;
+    min-height: calc(100vh - 60px);
+    background-color: transparent;
+    opacity: 0;
+    animation: fadeIn 1s forwards, slideUp 1s 0.5s forwards;
+    width: 100%;
+  }
+  
+  .blog-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    width: 100%;
+    opacity: 0;
+    animation: fadeIn 1s 0.5s forwards, pulse 3s infinite alternate;
+  }
+  
+  .blog-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #bb00ff;
+    opacity: 1;
+    animation: glow 3s infinite alternate;
+    text-align: center;
+  }
+  
+  .blog-post-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 900px;
+  }
+  
+  .blog-post-list li {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-shadow: 0 0 18px rgba(128, 0, 128, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeInLeft 0.5s ease-out;
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+  }
+  
+  .blog-post {
+    width: 100%;
+    color: white;
+  }
+  
+  .post-image {
+    width: 100%;
+    height: 250px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  
+  .post-image img {
+    width: 100%; /* Imagen responsive */
+    height: auto; /* Mantiene las proporciones de la imagen */
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+  
+  .blog-post h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    color: #bb00ff;
+    animation: glow 3s infinite alternate;
+  }
+  
+  .blog-post p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: white;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .actions button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    animation: fadeIn 1s ease-out;
+  }
+  
+  .actions button:hover {
+    background-color: #bb00ff;
+    color: white;
+    transform: scale(1.05);
+  }
+  
+  .blog-post-list li:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 18px #bb00ff, 0 0 28px #bb00ff;
+    cursor: pointer;
+  }
+  
+  .delete-btn {
+    background-color: transparent;
+    border: none;
+    color: #bb00ff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .delete-btn:hover {
+    color: #fff;
+  }
+  
+  @media (max-width: 768px) {
+    .blog-header h2 {
+      font-size: 2rem;
+    }
+  
+    .blog-post-list li {
+      padding: 1rem;
+    }
+  
+    .blog-post h3 {
+      font-size: 1.5rem;
+    }
+  
+    .blog-post p {
+      font-size: 1rem;
+    }
+  
+    .post-image {
+      height: 200px;
+    }
+  
+    .actions button {
+      font-size: 0.9rem;
+      padding: 0.4rem 0.8rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .blog-header h2 {
+      font-size: 1.6rem;
+    }
+  
+    .blog-post-list li {
+      padding: 0.8rem;
+    }
+  
+    .blog-post h3 {
+      font-size: 1.3rem;
+    }
+  
+    .blog-post p {
+      font-size: 0.9rem;
+    }
+  
+    .post-image {
+      height: 180px;
+    }
+  
+    .actions button {
+      font-size: 0.8rem;
+      padding: 0.3rem 0.7rem;
+    }
+  }
+  
+  @keyframes glow {
+    0% {
+      color: #bb00ff;
+      text-shadow: 0 0 15px #bb00ff, 0 0 30px #bb00ff, 0 0 50px #bb00ff;
+    }
+    50% {
+      color: #ff00ff;
+      text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff;
+    }
+    100% {
+      color: #bb00ff;
+      text-shadow: 0 0 15px #bb00ff, 0 0 30px #bb00ff, 0 0 50px #bb00ff;
+    }
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideUp {
+    0% {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  

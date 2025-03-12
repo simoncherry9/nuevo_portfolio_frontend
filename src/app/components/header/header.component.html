@@ -1,16 +1,15 @@
 <header class="header-container d-flex justify-content-between align-items-center">
-    <div class="portfolio-text">
-      <span>Portfolio</span>
-    </div>
-    
-    <div class="button-container d-flex justify-content-end">
-      <button class="btn btn-header" (click)="goToMessages()" title="Messages">
-        <i class="bi bi-chat-left-dots"></i>
-      </button>
-    
-      <button class="btn btn-header" (click)="logout()" title="Logout">
-        <i class="bi bi-box-arrow-right"></i> <!-- Ícono de logout -->
-      </button>
-    </div>
-  </header>
+  <div class="portfolio-text">
+    <span (click)="goToAdmin()" title="Ir a Admin">Portfolio</span> 
+  </div>
   
+  <div class="button-container d-flex justify-content-end">
+    <button class="btn btn-header" (click)="goToMessages()" title="Messages">
+      <i class="bi bi-chat-left-dots"></i>
+    </button>
+  
+    <button class="btn btn-header" (click)="logout()" title="Logout">
+      <i class="bi bi-box-arrow-right"></i> 
+    </button>
+  </div>
+</header>

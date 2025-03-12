@@ -13,12 +13,15 @@ export class HeaderComponent {
 
   logout() {
     this.authService.logout();
-
     this.router.navigate(['/login']);
   }
 
   goToMessages() {
     console.log('Go to messages clicked');
     this.router.navigate(['/mensajes']);
+  }
+
+  goToAdmin() {
+    this.router.navigate(['/admin']); 
   }
 }

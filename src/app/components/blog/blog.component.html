@@ -1,25 +1,36 @@
 <app-header></app-header>
 
-<div class="blog-list">
-  <h2>Blog Posts</h2>
-  <div *ngFor="let post of blogPosts">
-    <div class="blog-post">
-      <h3>{{ post.title }}</h3>
-      <p>{{ post.content | slice:0:100 }}...</p>
-      <p><small>By {{ post.author }} | Published on {{ post.publishedAt | date }}</small></p>
-      <div class="actions">
-        <button (click)="editPost(post.id)">Edit</button>
-        <button (click)="showConfirmationModal(post.id)">Delete</button>
-      </div>
+<div class="main-container">
+  <div class="blog-container">
+    <div class="blog-header">
+      <h2>Blog Posts</h2>
     </div>
+
+    <ul class="blog-post-list">
+      <li *ngFor="let post of blogPosts" (click)="editPost(post.id)">
+        <div class="blog-post">
+          <div class="post-image">
+            <img *ngIf="post.imageUrl" [src]="post.imageUrl" alt="Post image" class="post-image-img" />
+          </div>
+          <div class="post-content">
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.content | slice:0:100 }}...</p>
+            <p><small>By {{ post.author }} | Published on {{ post.publishedAt | date }}</small></p>
+            <div class="actions">
+              <button (click)="editPost(post.id)">Edit</button>
+              <button (click)="showConfirmationModal(post.id); $event.stopPropagation()">Delete</button>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>
 
-<app-footer></app-footer>
-
-<!-- Modal de confirmación de eliminación -->
 <app-modal-confirmation *ngIf="showModal"
   [showModal]="showModal" 
   [message]="'¿Estás seguro de eliminar este post?'" 
   (confirm)="onConfirmDelete($event)">
 </app-modal-confirmation>
+
+<app-footer></app-footer>
