@@ -12,25 +12,31 @@ import { CommonModule } from '@angular/common';
   imports: [FormsModule, CommonModule]
 })
 export class LoginComponent {
-  email: string = '';  // Usamos email en lugar de username
-  password: string = '';
-  errorMessage: string = '';
-  loading: boolean = false;
+  email = '';
+  password = '';
+  errorMessage = '';
+  loading = false;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) {}
 
   login(): void {
     this.loading = true;
-    this.authService.login(this.email, this.password).subscribe(  // Asegúrate de que el frontend envíe un email
-      (response: any) => {
+    this.errorMessage = '';
+
+    this.authService.login(this.email, this.password).subscribe({
+      next: (response) => {
         this.loading = false;
-        this.authService.saveToken(response.token);
-        this.router.navigate(['/admin']);
+        this.authService.saveToken(response.token); // Guarda el token en localStorage
+
+        // Redirige después de un pequeño retraso para asegurarse de que el token se haya guardado
+        setTimeout(() => {
+          this.router.navigate(['/admin']);  // Redirige a /admin
+        }, 100);
       },
-      (error) => {
+      error: (error) => {
         this.loading = false;
-        this.errorMessage = 'Credenciales incorrectas. Intenta de nuevo.';
+        this.errorMessage = error.message || 'Credenciales incorrectas. Intenta de nuevo.';
       }
-    );
+    });
   }
 }

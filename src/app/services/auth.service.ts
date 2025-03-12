@@ -7,11 +7,10 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3001/api/users/login';  // Asegúrate de que la URL coincida exactamente
+  private apiUrl = 'http://localhost:3001/api/users/login'; // Ajusta si es necesario
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  // Configuración de cabeceras por defecto
   private getHeaders(): HttpHeaders {
     return new HttpHeaders({
       'Content-Type': 'application/json',
@@ -19,33 +18,32 @@ export class AuthService {
     });
   }
 
-  // Método para realizar login
-  login(email: string, password: string): Observable<any> {
+  login(email: string, password: string): Observable<{ token: string }> {
     const headers = this.getHeaders();
-    return this.http.post(this.apiUrl, { email, password }, { headers }).pipe(
+    return this.http.post<{ token: string }>(this.apiUrl, { email, password }, { headers }).pipe(
       catchError(error => {
         console.error('Error en el login:', error);
-        return throwError(() => new Error('Error en la autenticación'));
+        return throwError(() => new Error(error.error?.message || 'Error en la autenticación'));
       })
     );
   }
 
-  // Método para guardar el token en localStorage
   saveToken(token: string): void {
     localStorage.setItem('authToken', token);
   }
 
-  // Método para obtener el token desde localStorage
   getToken(): string | null {
-    return localStorage.getItem('authToken');
+    if (typeof localStorage !== 'undefined') {
+      return localStorage.getItem('authToken');
+    }
+    return null;
   }
+  
 
-  // Método para comprobar si el usuario está autenticado
   isAuthenticated(): boolean {
-    return this.getToken() !== null;
+    return !!this.getToken();
   }
 
-  // Método para cerrar sesión
   logout(): void {
     localStorage.removeItem('authToken');
   }
