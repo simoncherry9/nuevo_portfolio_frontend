@@ -1,20 +1,54 @@
-<div class="login-container">
-  <h2>Login</h2>
-  <form (ngSubmit)="login()">
-    <div>
-      <label for="email">Email</label>
-      <input type="email" id="email" [(ngModel)]="email" name="email" required aria-label="Correo electrónico" />
+<div class="login-container d-flex justify-content-center align-items-center">
+  <div class="login-box">
+    <!-- Icono que sobresale del contenedor -->
+    <div class="login-icon-container">
+      <img src="../../../assets/icono.png" alt="Icono de Seguridad" class="login-icon" />
     </div>
-    <div>
-      <label for="password">Password</label>
-      <input type="password" id="password" [(ngModel)]="password" name="password" required aria-label="Contraseña" />
+    <div class="login-header d-flex justify-content-center align-items-center">
+      <h2 class="text-center text-white">Iniciar Sesión</h2>
     </div>
-    <button type="submit" [disabled]="loading">Login</button>
-  </form>
+    <form (ngSubmit)="login()">
+      <div class="mb-3">
+        <label for="email" class="form-label text-white">Correo electrónico</label>
+        <input
+          type="email"
+          id="email"
+          [(ngModel)]="email"
+          name="email"
+          class="form-control neon-input"
+          required
+          aria-label="Correo electrónico"
+          [pattern]="'^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'"
+        />
+        <!-- Mensaje de error de formato de correo -->
+        <div *ngIf="email && !isEmailValid(email)" class="error-message">
+          El correo debe tener un formato válido.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label text-white">Contraseña</label>
+        <input
+          type="password"
+          id="password"
+          [(ngModel)]="password"
+          name="password"
+          class="form-control neon-input"
+          required
+          aria-label="Contraseña"
+        />
+        <!-- Mensaje de error si la contraseña está vacía -->
+        <div *ngIf="password && password.trim() === ''" class="error-message">
+          La contraseña no puede estar vacía.
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary w-100 mt-3" [disabled]="loading || !email || !password">
+        <span *ngIf="!loading">Ingresar</span>
+        <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      </button>
+    </form>
 
-  <div *ngIf="loading" class="loading-spinner">
-    Cargando...
+    <div *ngIf="errorMessage" class="error text-danger mt-3 text-center">
+      {{ errorMessage }}
+    </div>
   </div>
-
-  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
 </div>
