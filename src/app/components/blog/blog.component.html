@@ -3,9 +3,12 @@
 <div class="main-container">
   <div class="blog-container">
     <div class="blog-header">
-      <h2>Blog Posts</h2>
-    </div>
-
+        <h2>Blogs</h2>
+        
+      </div>   
+      <button class="create-blog-btn" (click)="navigateToCreateBlog()" title="Crear nuevo blog" aria-label="Crear nuevo blog">
+        <i class="fas fa-plus"></i>
+      </button> 
     <ul class="blog-post-list">
       <li *ngFor="let post of blogPosts" (click)="editPost(post.id)">
         <div class="blog-post">
@@ -17,8 +20,12 @@
             <p>{{ post.content | slice:0:100 }}...</p>
             <p><small>By {{ post.author }} | Published on {{ post.publishedAt | date }}</small></p>
             <div class="actions">
-              <button (click)="editPost(post.id)">Edit</button>
-              <button (click)="showConfirmationModal(post.id); $event.stopPropagation()">Delete</button>
+              <button (click)="editPost(post.id)">
+                <i class="fas fa-edit"></i> Editar
+              </button>
+              <button class="delete-btn" (click)="showConfirmationModal(post.id); $event.stopPropagation()">
+                <i class="fas fa-trash-alt"></i> Eliminar
+              </button>
             </div>
           </div>
         </div>

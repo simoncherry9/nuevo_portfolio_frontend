@@ -25,6 +25,7 @@ import { AuthTokenInterceptor } from './interceptors/auth-token.interceptor';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ModalConfirmationComponent } from './components/modal-confirmation/modal-confirmation.component';
+import { CrearBlogComponent } from './components/crear-blog/crear-blog.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ModalConfirmationComponent } from './components/modal-confirmation/moda
     SkillsComponent,
     SociallinksComponent,
     TestimonialsComponent,
+    CrearBlogComponent,
     
   ],
   imports: [

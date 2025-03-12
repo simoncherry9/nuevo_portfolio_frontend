@@ -12,6 +12,7 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { SociallinksComponent } from './components/sociallinks/sociallinks.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
+import { CrearBlogComponent } from './components/crear-blog/crear-blog.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
     component: AdminComponent
   },
   { path: 'blog', component: BlogComponent, canActivate: [AuthGuard] },
+  { path: 'crear-blog', component: CrearBlogComponent, canActivate: [AuthGuard] },
   { path: 'experiences', component: ExperiencesComponent, canActivate: [AuthGuard] },
   { path: 'images', component: ImagesComponent, canActivate: [AuthGuard] },
   { path: 'mensajes', component: MensajesComponent, canActivate: [AuthGuard] },

@@ -21,8 +21,9 @@ import { ModalConfirmationComponent } from '../../components/modal-confirmation/
 })
 export class BlogComponent implements OnInit {
   blogPosts: BlogPost[] = [];
-  showModal: boolean = false; 
-  currentPostId: number | null = null;  
+  showModal: boolean = false;
+  currentPostId: number | null = null;
+  selectedPost: BlogPost | null = null; // Para almacenar el post seleccionado
 
   constructor(private blogService: BlogService, private router: Router) {}
 
@@ -40,21 +41,41 @@ export class BlogComponent implements OnInit {
     this.router.navigate([`/edit-blog/${id}`]);
   }
 
-  showConfirmationModal(id: number): void {
-    this.currentPostId = id;
-    this.showModal = true;  
+  // Método para abrir el modal de confirmación
+  openModal(post: BlogPost): void {
+    this.selectedPost = post;  // Guardamos el post seleccionado para mostrar su contenido
+    this.showModal = true;      // Mostramos el modal
   }
 
+  // Método que maneja la apertura del modal de confirmación
+  showConfirmationModal(id: number): void {
+    this.currentPostId = id;
+    this.showModal = true;
+  }
+
+  // Método que se activa cuando el usuario confirma la eliminación
   onConfirmDelete(confirm: boolean): void {
     if (confirm && this.currentPostId !== null) {
       this.deletePost(this.currentPostId);
     }
-    this.showModal = false;  
+    this.showModal = false;  // Cerramos el modal de confirmación
   }
 
+  // Método para eliminar el post
   deletePost(id: number): void {
     this.blogService.deleteBlogPost(id).subscribe(() => {
-      this.loadBlogPosts(); 
+      this.loadBlogPosts();  // Recargamos los posts después de la eliminación
     });
   }
+
+  // Método para cerrar el modal de contenido completo
+  closeModal(): void {
+    this.selectedPost = null;  // Limpiamos el post seleccionado
+    this.showModal = false;    // Cerramos el modal
+  }
+
+  navigateToCreateBlog(): void {
+    this.router.navigate(['/crear-blog']);
+  }  
+  
 }

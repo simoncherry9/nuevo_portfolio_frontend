@@ -1,10 +1,9 @@
 <div class="modal" *ngIf="showModal" [ngClass]="{'show': showModal}">
-    <div class="modal-content">
-      <h3>{{ message }}</h3>
-      <div class="modal-actions">
-        <button (click)="confirmDelete()">Confirmar</button>
-        <button class="cancel" (click)="cancelDelete()">Cancelar</button>
-      </div>
+  <div class="modal-content">
+    <h3>{{ message }}</h3>
+    <div class="modal-actions">
+      <button (click)="confirmDelete()">Confirmar</button>
+      <button class="cancel" (click)="cancelDelete()">Cancelar</button>
     </div>
   </div>
-  
+</div>
