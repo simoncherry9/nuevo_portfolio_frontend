@@ -21,6 +21,8 @@ import { HttpClientModule, provideHttpClient, withFetch, HTTP_INTERCEPTORS } fro
 
 // Interceptores
 import { AuthTokenInterceptor } from './interceptors/auth-token.interceptor';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { AuthTokenInterceptor } from './interceptors/auth-token.interceptor';
     ProjectsComponent,
     SkillsComponent,
     SociallinksComponent,
-    TestimonialsComponent
+    TestimonialsComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
