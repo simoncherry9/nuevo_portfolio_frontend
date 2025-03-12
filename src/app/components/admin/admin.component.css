@@ -1,4 +1,3 @@
-
 .admin-panel {
     display: flex;
     flex-direction: column;
@@ -9,7 +8,7 @@
     min-height: calc(100vh - 60px);
     background-color: transparent;
     opacity: 0;
-    animation: fadeIn 1s forwards;
+    animation: fadeIn 1s forwards, slideUp 1s 0.5s forwards;
 }
 
 .panel-header {
@@ -17,7 +16,7 @@
     margin-bottom: 2rem;
     color: #fff;
     opacity: 0;
-    animation: fadeIn 1s 0.5s forwards;
+    animation: fadeIn 1s 0.5s forwards, pulse 3s infinite alternate;
 }
 
 .panel-header h1 {
@@ -61,13 +60,15 @@
     animation: fadeIn 1s 1.5s forwards;
 }
 
+/* Efecto hover en los botones */
 .button-card:hover {
     transform: scale(1.05);
     box-shadow: 0 0 18px #bb00ff, 0 0 28px #bb00ff;
     cursor: pointer;
-    background-color: rgba(128, 0, 128, 0.8);
+    background-color: #0000
 }
 
+/* Icono del botón */
 .card-icon {
     font-size: 1.6rem;
     color: #bb00ff;
@@ -75,6 +76,7 @@
     transition: color 0.3s;
 }
 
+/* Hover sobre el icono */
 .button-card:hover .card-icon {
     color: #fff;
 }
@@ -88,11 +90,12 @@
     transition: color 0.3s;
 }
 
+/* Hover sobre el texto */
 .button-card:hover h3 {
     color: #bb00ff;
 }
 
-
+/* Añadir animación a los botones cuando se muestran */
 @keyframes glow {
     0% {
         color: #bb00ff;
@@ -108,7 +111,7 @@
     }
 }
 
-
+/* Animación fadeIn para los botones */
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -118,7 +121,7 @@
     }
 }
 
-
+/* Animación slideUp para los botones */
 @keyframes slideUp {
     0% {
         transform: translateY(50px);
@@ -130,20 +133,20 @@
     }
 }
 
-
-@keyframes neonGlow {
+/* Pulsar animación (opcional) */
+@keyframes pulse {
     0% {
-        box-shadow: 0 0 10px #bb00ff, 0 0 30px #bb00ff, 0 0 60px #bb00ff;
+        transform: scale(1);
     }
     50% {
-        box-shadow: 0 0 20px #ff00ff, 0 0 50px #ff00ff, 0 0 80px #ff00ff;
+        transform: scale(1.1);
     }
     100% {
-        box-shadow: 0 0 10px #bb00ff, 0 0 30px #bb00ff, 0 0 60px #bb00ff;
+        transform: scale(1);
     }
 }
 
-
+/* Medias queries para pantallas pequeñas */
 @media (max-width: 768px) {
     .panel-header h1 {
         font-size: 1.8rem;

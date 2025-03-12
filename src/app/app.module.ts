@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 
+
 import { AdminComponent } from './components/admin/admin.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { BlogComponent } from './components/blog/blog.component';
@@ -23,6 +24,7 @@ import { HttpClientModule, provideHttpClient, withFetch, HTTP_INTERCEPTORS } fro
 import { AuthTokenInterceptor } from './interceptors/auth-token.interceptor';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ModalConfirmationComponent } from './components/modal-confirmation/modal-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -30,21 +32,23 @@ import { FooterComponent } from './components/footer/footer.component';
     AdminComponent,
     PortfolioComponent,
     BlogComponent,
-    MensajesComponent,
     ExperiencesComponent,
     ImagesComponent,
     ProjectsComponent,
     SkillsComponent,
     SociallinksComponent,
     TestimonialsComponent,
-    HeaderComponent,
-    FooterComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule  
+    HttpClientModule,
+    MensajesComponent,
+    HeaderComponent,
+    ModalConfirmationComponent,
+    FooterComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true },  

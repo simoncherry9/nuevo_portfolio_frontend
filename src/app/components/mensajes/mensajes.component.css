@@ -1,0 +1,234 @@
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem;
+    margin-top: 60px;
+    min-height: calc(100vh - 60px);
+    background-color: transparent;
+    opacity: 0;
+    animation: fadeIn 1s forwards, slideUp 1s 0.5s forwards;
+    width: 100%;
+}
+
+.mensajes-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    width: 100%;
+    opacity: 0;
+    animation: fadeIn 1s 0.5s forwards, pulse 3s infinite alternate;
+}
+
+.mensajes-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #bb00ff;
+    opacity: 1;
+    animation: glow 3s infinite alternate;
+    text-align: center;
+}
+
+.message-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 800px;
+}
+
+.message-list li {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 12px rgba(128, 0, 128, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeInLeft 0.5s ease-out;
+}
+
+.message-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    color: white;
+}
+
+.message-item strong, .message-item span {
+    color: white;
+}
+
+.message-list li button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    margin-left: 10px;
+    animation: fadeIn 1s ease-out;
+}
+
+.message-list li button:hover {
+    background-color: #bb00ff;
+    color: white;
+    transform: scale(1.05);
+}
+
+.message-list li:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 18px #bb00ff, 0 0 28px #bb00ff;
+    cursor: pointer;
+}
+
+.delete-btn {
+    background-color: transparent;
+    border: none;
+    color: #bb00ff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.delete-btn:hover {
+    color: #fff;
+}
+
+.message-detail {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(128, 0, 128, 0.5);
+    margin-top: 2rem;
+    color: #fff;
+    width: 100%;
+    max-width: 800px;
+    animation: fadeIn 1s ease-out;
+}
+
+.message-detail h3,
+.message-detail p {
+    color: #fff;
+}
+
+.message-detail strong {
+    color: #bb00ff;
+}
+
+.message-detail h3 {
+    margin-bottom: 1rem;
+    color: #bb00ff;
+    animation: glow 3s infinite alternate;
+}
+
+.message-detail p {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+.close-btn {
+    background-color: #bb00ff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+}
+
+.close-btn:hover {
+    background-color: #800080;
+}
+
+@media (max-width: 768px) {
+    .mensajes-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .message-list li {
+        padding: 0.8rem;
+    }
+
+    .message-detail {
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mensajes-header h2 {
+        font-size: 1.4rem;
+    }
+
+    .message-list li {
+        padding: 0.6rem;
+    }
+}
+
+
+@keyframes glow {
+    0% {
+        color: #bb00ff;
+        text-shadow: 0 0 10px #bb00ff, 0 0 30px #bb00ff, 0 0 50px #bb00ff;
+    }
+    50% {
+        color: #ff00ff;
+        text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff;
+    }
+    100% {
+        color: #bb00ff;
+        text-shadow: 0 0 10px #bb00ff, 0 0 30px #bb00ff, 0 0 50px #bb00ff;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
