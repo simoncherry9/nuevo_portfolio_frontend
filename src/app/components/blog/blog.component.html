@@ -1,1 +1,25 @@
-<p>blog works!</p>
+<app-header></app-header>
+
+<div class="blog-list">
+  <h2>Blog Posts</h2>
+  <div *ngFor="let post of blogPosts">
+    <div class="blog-post">
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.content | slice:0:100 }}...</p>
+      <p><small>By {{ post.author }} | Published on {{ post.publishedAt | date }}</small></p>
+      <div class="actions">
+        <button (click)="editPost(post.id)">Edit</button>
+        <button (click)="showConfirmationModal(post.id)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
+
+<!-- Modal de confirmación de eliminación -->
+<app-modal-confirmation *ngIf="showModal"
+  [showModal]="showModal" 
+  [message]="'¿Estás seguro de eliminar este post?'" 
+  (confirm)="onConfirmDelete($event)">
+</app-modal-confirmation>

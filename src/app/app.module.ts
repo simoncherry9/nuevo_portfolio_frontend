@@ -31,7 +31,6 @@ import { ModalConfirmationComponent } from './components/modal-confirmation/moda
     AppComponent,
     AdminComponent,
     PortfolioComponent,
-    BlogComponent,
     ExperiencesComponent,
     ImagesComponent,
     ProjectsComponent,
@@ -48,7 +47,8 @@ import { ModalConfirmationComponent } from './components/modal-confirmation/moda
     MensajesComponent,
     HeaderComponent,
     ModalConfirmationComponent,
-    FooterComponent
+    FooterComponent,
+    BlogComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true },  
