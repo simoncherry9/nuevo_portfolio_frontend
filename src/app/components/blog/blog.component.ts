@@ -38,6 +38,11 @@ export class BlogComponent implements OnInit {
     this.router.navigate([`/edit-blog/${id}`]);
   }
 
+  // Método para visualizar el blog seleccionado
+  viewPost(id: number): void {
+    this.router.navigate([`/blog-ver/${id}`]); // Redirige a la ruta /blog-ver/{id}
+  }
+
   // Método para eliminar el post usando SweetAlert2
   deletePost(id: number): void {
     Swal.fire({

@@ -1,0 +1,214 @@
+.blog-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin-top: 60px;
+    min-height: calc(100vh - 60px);
+    background-color: transparent;
+    opacity: 0;
+    animation: fadeIn 1s forwards, slideUp 1s 0.5s forwards;
+    width: 100%;
+}
+
+.blog-post {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Aumentar opacidad para un fondo más oscuro */
+    border-radius: 15px; /* Bordes más suaves */
+    padding: 2.5rem; /* Un poco más de padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0 0 30px rgba(128, 0, 128, 0.5); /* Sombra más grande */
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeInLeft 0.5s ease-out;
+}
+
+.blog-title {
+    font-size: 3rem; /* Aumentar tamaño del título */
+    margin-bottom: 1.5rem; /* Un poco más de espacio debajo */
+    color: #bb00ff;
+    text-align: center;
+    animation: glow 3s infinite alternate; /* Efecto neón */
+}
+
+.blog-meta {
+    margin: 1rem 0;
+    color: #ddd; /* Color más claro para la meta información */
+}
+
+.author, .published-at {
+    margin: 0.5rem 0;
+}
+
+.author {
+    font-weight: bold;
+}
+
+.published-at {
+    font-style: italic;
+}
+
+.blog-image {
+    width: 80%; /* Reduce el tamaño de la imagen en pantallas grandes */
+    height: 250px; /* Reduce el alto */
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.blog-image:hover img {
+    transform: scale(1.05); /* Efecto zoom en la imagen al pasar el ratón */
+}
+
+.blog-content {
+    margin-bottom: 2rem;
+    color: white;
+    font-size: 1.2rem; /* Mayor tamaño de fuente */
+    line-height: 1.6; /* Mejor legibilidad */
+}
+
+.blog-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.blog-actions button {
+    background-color: transparent;
+    color: white;
+    border: 1px solid #bb00ff; /* Añadir borde con el mismo color que el texto */
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem 1.5rem;
+    transition: transform 0.3s, color 0.3s, border-color 0.3s;
+    margin: 0 1rem;
+}
+
+.blog-actions button:hover {
+    transform: scale(1.1);
+    color: #bb00ff;
+    border-color: #ff00ff; /* Cambio de color del borde al hacer hover */
+}
+
+.blog-actions button i {
+    font-size: 1.4rem;
+    margin-right: 0.5rem;
+}
+
+/* Medios de pantalla grandes */
+@media (min-width: 1024px) {
+    .blog-image {
+        width: 70%; /* Hacer la imagen más pequeña en pantallas grandes */
+        height: 300px; /* Un tamaño de imagen adecuado */
+    }
+
+    .blog-title {
+        font-size: 3.5rem; /* Aumentar el tamaño del título en pantallas grandes */
+    }
+
+    .blog-content {
+        font-size: 1.3rem; /* Mejor tamaño de fuente en pantallas grandes */
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-title {
+        font-size: 2.5rem;
+    }
+
+    .blog-post h3 {
+        font-size: 1.6rem;
+    }
+
+    .blog-post p {
+        font-size: 1rem;
+    }
+
+    .blog-image {
+        height: 250px;
+    }
+
+    .blog-actions button {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-title {
+        font-size: 1.6rem;
+    }
+
+    .blog-post h3 {
+        font-size: 1.3rem;
+    }
+
+    .blog-post p {
+        font-size: 0.9rem;
+    }
+
+    .blog-image {
+        height: 200px;
+    }
+
+    .blog-actions button {
+        font-size: 0.9rem;
+    }
+}
+
+@keyframes glow {
+    0% {
+        color: #bb00ff;
+        text-shadow: 0 0 15px #bb00ff, 0 0 30px #bb00ff, 0 0 50px #bb00ff;
+    }
+    50% {
+        color: #ff00ff;
+        text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff;
+    }
+    100% {
+        color: #bb00ff;
+        text-shadow: 0 0 15px #bb00ff, 0 0 30px #bb00ff, 0 0 50px #bb00ff;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

@@ -14,18 +14,19 @@ import { SociallinksComponent } from './components/sociallinks/sociallinks.compo
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 import { CrearBlogComponent } from './components/crear-blog/crear-blog.component';
 import { AuthGuard } from './guards/auth.guard';
+import { BlogVerComponent } from './components/blog-ver/blog-ver.component';  // Asegúrate de importar el componente
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },   
-  { path: 'portfolio', component: PortfolioComponent }, 
+  { path: 'portfolio', component: PortfolioComponent },  // Página pública para mostrar los blogs
 
-  
   {
     path: 'admin',
     canActivate: [AuthGuard],
     component: AdminComponent
   },
-  { path: 'blog', component: BlogComponent, canActivate: [AuthGuard] },
+  { path: 'blog', component: BlogComponent, canActivate: [AuthGuard] }, // Solo accesible para usuarios autenticados (para editar blogs)
+  { path: 'blog-ver/:id', component: BlogVerComponent },  // Ruta pública para ver un blog específico
   { path: 'crear-blog', component: CrearBlogComponent, canActivate: [AuthGuard] },
   { path: 'experiences', component: ExperiencesComponent, canActivate: [AuthGuard] },
   { path: 'images', component: ImagesComponent, canActivate: [AuthGuard] },
@@ -35,10 +36,7 @@ const routes: Routes = [
   { path: 'sociallinks', component: SociallinksComponent, canActivate: [AuthGuard] },
   { path: 'testimonials', component: TestimonialsComponent, canActivate: [AuthGuard] },
 
-  
   { path: '', redirectTo: '/portfolio', pathMatch: 'full' },
-
-  
   { path: '**', redirectTo: '/portfolio' }
 ];
 

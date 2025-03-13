@@ -1,0 +1,33 @@
+<app-header></app-header>
+
+<div class="blog-container" *ngIf="blogPost">
+  <div class="blog-post">
+    <!-- Título del blog con efecto de neón -->
+    <h2 class="blog-title neon-text">{{ blogPost.title }}</h2>
+
+    <!-- Información de autor y fecha -->
+    <div class="blog-meta">
+      <span class="author">Por {{ blogPost.author }}</span> |
+      <span class="published-at">{{ blogPost.publishedAt | date: 'shortDate' }}</span>
+    </div>
+
+    <!-- Imagen del blog -->
+    <div *ngIf="blogPost.imageUrl" class="blog-image">
+      <img [src]="blogPost.imageUrl" alt="{{ blogPost.title }}">
+    </div>
+
+    <!-- Contenido del blog -->
+    <div class="blog-content">
+      <p>{{ blogPost.content }}</p>
+    </div>
+
+    <!-- Botón Volver -->
+    <div class="blog-actions">
+      <button (click)="goBack()" class="action-button back-btn">
+        <i class="fa fa-arrow-left"></i> Volver
+      </button>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
