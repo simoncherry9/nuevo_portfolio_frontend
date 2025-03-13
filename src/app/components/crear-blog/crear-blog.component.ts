@@ -28,7 +28,7 @@ export class CrearBlogComponent {
     publishedAt: new Date().toISOString().split('T')[0], 
     author: '',
     isActive: true,
-    imageUrl: ''
+    imageUrl: ''  // Asegúrate de que esta propiedad esté presente
   };
 
   constructor(
@@ -37,6 +37,23 @@ export class CrearBlogComponent {
   ) {}
 
   onSubmit() {
+    // Validación de los campos vacíos
+    if (!this.blogPost.title || !this.blogPost.content || !this.blogPost.author || !this.blogPost.imageUrl) {
+      Swal.fire({
+        title: 'Error',
+        text: 'Todos los campos son obligatorios. Por favor, rellena todos los campos.',
+        icon: 'error',
+        confirmButtonText: 'Ok',
+        customClass: {
+          popup: 'swal2-popup',
+          title: 'swal2-title',
+          confirmButton: 'swal2-confirm'
+        }
+      });
+      return;  // Detener la ejecución si los campos están vacíos
+    }
+
+    // Si los campos son válidos, enviar la solicitud para crear el blog
     this.blogService.createBlogPost(this.blogPost).subscribe({
       next: (response) => {
         console.log('Blog creado:', response);
@@ -50,7 +67,7 @@ export class CrearBlogComponent {
             title: 'swal2-title',
             confirmButton: 'swal2-confirm'
           }
-        }); 
+        });
         this.router.navigate(['/blog']);
       },
       error: (err) => {
@@ -65,12 +82,12 @@ export class CrearBlogComponent {
             title: 'swal2-title',
             confirmButton: 'swal2-confirm'
           }
-        }); 
+        });
       }
     });
   }
 
   cancel() {
-    this.router.navigate(['/blogs']);
+    this.router.navigate(['/blog']);
   }
 }
