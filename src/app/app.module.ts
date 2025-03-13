@@ -38,7 +38,7 @@ import { CrearBlogComponent } from './components/crear-blog/crear-blog.component
     SkillsComponent,
     SociallinksComponent,
     TestimonialsComponent,
-    CrearBlogComponent,
+    
     
   ],
   imports: [
@@ -50,7 +50,8 @@ import { CrearBlogComponent } from './components/crear-blog/crear-blog.component
     HeaderComponent,
     ModalConfirmationComponent,
     FooterComponent,
-    BlogComponent
+    BlogComponent,
+    CrearBlogComponent,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true },  
