@@ -37,11 +37,11 @@ export class CrearBlogComponent {
   ) {}
 
   onSubmit() {
-    // Validación de los campos vacíos
-    if (!this.blogPost.title || !this.blogPost.content || !this.blogPost.author || !this.blogPost.imageUrl) {
+    // Validación de campos vacíos con mensajes específicos
+    if (!this.blogPost.title) {
       Swal.fire({
         title: 'Error',
-        text: 'Todos los campos son obligatorios. Por favor, rellena todos los campos.',
+        text: 'El título es obligatorio. Por favor, ingresa un título.',
         icon: 'error',
         confirmButtonText: 'Ok',
         customClass: {
@@ -50,10 +50,55 @@ export class CrearBlogComponent {
           confirmButton: 'swal2-confirm'
         }
       });
-      return;  // Detener la ejecución si los campos están vacíos
+      return;  // Detener la ejecución si falta el título
     }
 
-    // Si los campos son válidos, enviar la solicitud para crear el blog
+    if (!this.blogPost.content) {
+      Swal.fire({
+        title: 'Error',
+        text: 'El contenido es obligatorio. Por favor, ingresa contenido para el blog.',
+        icon: 'error',
+        confirmButtonText: 'Ok',
+        customClass: {
+          popup: 'swal2-popup',
+          title: 'swal2-title',
+          confirmButton: 'swal2-confirm'
+        }
+      });
+      return;  // Detener la ejecución si falta el contenido
+    }
+
+    if (!this.blogPost.author) {
+      Swal.fire({
+        title: 'Error',
+        text: 'El autor es obligatorio. Por favor, ingresa el nombre del autor.',
+        icon: 'error',
+        confirmButtonText: 'Ok',
+        customClass: {
+          popup: 'swal2-popup',
+          title: 'swal2-title',
+          confirmButton: 'swal2-confirm'
+        }
+      });
+      return;  // Detener la ejecución si falta el autor
+    }
+
+    if (!this.blogPost.imageUrl) {
+      Swal.fire({
+        title: 'Error',
+        text: 'La URL de la imagen es obligatoria. Por favor, ingresa una URL válida.',
+        icon: 'error',
+        confirmButtonText: 'Ok',
+        customClass: {
+          popup: 'swal2-popup',
+          title: 'swal2-title',
+          confirmButton: 'swal2-confirm'
+        }
+      });
+      return;  // Detener la ejecución si falta la imagen
+    }
+
+    // Si todos los campos son válidos, proceder a crear el blog
     this.blogService.createBlogPost(this.blogPost).subscribe({
       next: (response) => {
         console.log('Blog creado:', response);
