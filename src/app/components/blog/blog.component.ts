@@ -5,7 +5,7 @@ import { BlogPost } from '../../interfaces/blog';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
-import { ModalConfirmationComponent } from '../../components/modal-confirmation/modal-confirmation.component';
+import Swal from 'sweetalert2';  // Importa SweetAlert2
 
 @Component({
   selector: 'app-blog',
@@ -15,14 +15,11 @@ import { ModalConfirmationComponent } from '../../components/modal-confirmation/
   imports: [
     CommonModule,
     HeaderComponent,
-    FooterComponent,
-    ModalConfirmationComponent 
+    FooterComponent
   ]
 })
 export class BlogComponent implements OnInit {
   blogPosts: BlogPost[] = [];
-  showModal: boolean = false;
-  currentPostId: number | null = null;
   selectedPost: BlogPost | null = null; // Para almacenar el post seleccionado
 
   constructor(private blogService: BlogService, private router: Router) {}
@@ -41,41 +38,43 @@ export class BlogComponent implements OnInit {
     this.router.navigate([`/edit-blog/${id}`]);
   }
 
-  // Método para abrir el modal de confirmación
-  openModal(post: BlogPost): void {
-    this.selectedPost = post;  // Guardamos el post seleccionado para mostrar su contenido
-    this.showModal = true;      // Mostramos el modal
-  }
-
-  // Método que maneja la apertura del modal de confirmación
-  showConfirmationModal(id: number): void {
-    this.currentPostId = id;
-    this.showModal = true;
-  }
-
-  // Método que se activa cuando el usuario confirma la eliminación
-  onConfirmDelete(confirm: boolean): void {
-    if (confirm && this.currentPostId !== null) {
-      this.deletePost(this.currentPostId);
-    }
-    this.showModal = false;  // Cerramos el modal de confirmación
-  }
-
-  // Método para eliminar el post
+  // Método para eliminar el post usando SweetAlert2
   deletePost(id: number): void {
-    this.blogService.deleteBlogPost(id).subscribe(() => {
-      this.loadBlogPosts();  // Recargamos los posts después de la eliminación
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'No podrás revertir esta acción!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, eliminar!',
+      cancelButtonText: 'Cancelar',
+      customClass: {
+        popup: 'swal2-popup',
+        title: 'swal2-title',
+        confirmButton: 'swal2-confirm',
+        cancelButton: 'swal2-cancel'
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.blogService.deleteBlogPost(id).subscribe(() => {
+          this.loadBlogPosts();  // Recargamos los posts después de la eliminación
+          Swal.fire({
+            title: '¡Eliminado!',
+            text: 'El blog ha sido eliminado con éxito.',
+            icon: 'success',
+            confirmButtonText: 'Ok',
+            customClass: {
+              popup: 'swal2-popup',
+              title: 'swal2-title',
+              confirmButton: 'swal2-confirm'
+            }
+          });
+        });
+      }
     });
   }
 
-  // Método para cerrar el modal de contenido completo
-  closeModal(): void {
-    this.selectedPost = null;  // Limpiamos el post seleccionado
-    this.showModal = false;    // Cerramos el modal
-  }
-
+  // Método para navegar a la página de creación de blog
   navigateToCreateBlog(): void {
     this.router.navigate(['/crear-blog']);
-  }  
-  
+  }
 }

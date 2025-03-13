@@ -1,3 +1,57 @@
 body {
     background: radial-gradient(circle, #2e1a47, #1a1a1a);
 }
+
+/* Personalización del SweetAlert */
+.swal2-popup {
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro con algo de transparencia */
+    border-radius: 12px;
+    border: 2px solid #bb00ff; /* Borde púrpura */
+    box-shadow: 0 0 18px rgba(128, 0, 128, 0.3);
+    animation: fadeIn 0.5s forwards, slideUp 0.5s 0.3s forwards; /* Animación para suavizar la entrada */
+    color: white; /* Texto en blanco */
+  }
+  
+  .swal2-title {
+    color: #bb00ff; /* Título en púrpura */
+    font-size: 2rem; /* Tamaño de fuente */
+    text-shadow: 0 0 15px #bb00ff, 0 0 30px #bb00ff; /* Efecto neón */
+  }
+  
+  .swal2-content {
+    font-size: 1.2rem;
+    margin: 20px 0;
+    color: white;
+  }
+  
+  .swal2-confirm {
+    background-color: #bb00ff;
+    border: none;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .swal2-confirm:hover {
+    background-color: #ff00ff; /* Cambio de color al pasar el mouse */
+  }
+  
+  .swal2-cancel {
+    background-color: transparent;
+    color: #bb00ff;
+    border: 2px solid #bb00ff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: color 0.3s, border-color 0.3s;
+  }
+  
+  .swal2-cancel:hover {
+    color: white;
+    border-color: #ff00ff;
+  }
+  

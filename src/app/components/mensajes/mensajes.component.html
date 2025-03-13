@@ -9,7 +9,7 @@
     <li *ngFor="let message of messages" (click)="selectMessage(message)">
       <div class="message-item">
         <strong>{{ message.name }}</strong> {{ message.email }}
-        <button class="delete-btn" (click)="deleteMessage(message.id); $event.stopPropagation();">
+        <button class="delete-btn" (click)="confirmDeleteMessage(message.id); $event.stopPropagation();">
           🗑
         </button>
       </div>
@@ -24,11 +24,6 @@
     <button (click)="selectedMessage = null" class="close-btn">Cerrar</button>
   </div>
 
-  <app-modal-confirmation 
-    [showModal]="showModal" 
-    [message]="'¿Seguro que deseas eliminar este mensaje?'"
-    (confirm)="onConfirmDelete($event)">
-  </app-modal-confirmation>
 </div>
 
 <app-footer></app-footer>

@@ -5,7 +5,7 @@ import { ContactMessage } from '../../interfaces/contact-message';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
-import { ModalConfirmationComponent } from '../../components/modal-confirmation/modal-confirmation.component';
+import Swal from 'sweetalert2';  // Importando SweetAlert2
 
 @Component({
   selector: 'app-mensajes',
@@ -16,14 +16,11 @@ import { ModalConfirmationComponent } from '../../components/modal-confirmation/
     CommonModule,
     HeaderComponent,
     FooterComponent,
-    ModalConfirmationComponent, 
   ]
 })
 export class MensajesComponent implements OnInit {
   messages: ContactMessage[] = [];
   selectedMessage: ContactMessage | null = null;
-  showModal: boolean = false; 
-  currentMessageId: number | null = null; 
 
   constructor(private messageService: ContactMessageService, private router: Router) {}
 
@@ -42,30 +39,66 @@ export class MensajesComponent implements OnInit {
     this.selectedMessage = message;
   }
 
-  deleteMessage(id: number | null | undefined): void {
-    if (id == null) return; 
+  // Reemplazamos la confirmación de modal por SweetAlert2
+  confirmDeleteMessage(id: number | null | undefined): void {
+    if (id == null) return;
 
-    
-    this.currentMessageId = id;
-    this.showModal = true;
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: '¿Quieres eliminar este mensaje?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar',
+      customClass: {
+        popup: 'custom-popup',
+        title: 'custom-title',
+        confirmButton: 'custom-confirm-button',
+        cancelButton: 'custom-cancel-button'
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.deleteMessage(id);  // Si se confirma, se elimina el mensaje
+      }
+    });
   }
 
-  onConfirmDelete(confirm: boolean): void {
-    if (confirm && this.currentMessageId) {
-      this.messageService.deleteMessage(this.currentMessageId).subscribe({
-        next: () => {
-          this.messages = this.messages.filter((m) => m.id !== this.currentMessageId);
-          this.selectedMessage = null;
-          this.showModal = false; 
-        },
-        error: (err) => {
-          console.error('Error al eliminar mensaje:', err);
-          this.showModal = false; 
-        }
-      });
-    } else {
-      this.showModal = false; 
-    }
+  // Método para eliminar el mensaje
+  deleteMessage(id: number): void {
+    this.messageService.deleteMessage(id).subscribe({
+      next: () => {
+        // Filtramos el mensaje eliminado de la lista de mensajes
+        this.messages = this.messages.filter((m) => m.id !== id);
+        this.selectedMessage = null;  // Limpiar el mensaje seleccionado
+
+        // Mostrar mensaje de éxito de eliminación
+        Swal.fire({
+          title: '¡Éxito!',
+          text: 'Mensaje eliminado con éxito.',
+          icon: 'success',
+          confirmButtonText: 'Aceptar',
+          customClass: {
+            popup: 'custom-popup',
+            title: 'custom-title',
+            confirmButton: 'custom-confirm-button'
+          }
+        });
+      },
+      error: (err) => {
+        console.error('Error al eliminar mensaje:', err);
+        Swal.fire({
+          title: 'Error',
+          text: 'No se pudo eliminar el mensaje. Inténtalo de nuevo.',
+          icon: 'error',
+          confirmButtonText: 'Aceptar',
+          customClass: {
+            popup: 'custom-popup',
+            title: 'custom-title',
+            confirmButton: 'custom-confirm-button'
+          }
+        });
+      }
+    });
   }
 
   navigateTo(route: string): void {

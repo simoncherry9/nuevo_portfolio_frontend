@@ -44,7 +44,12 @@ export class CrearBlogComponent {
           title: '¡Éxito!',
           text: 'El blog fue creado con éxito!',
           icon: 'success',
-          confirmButtonText: 'Ok'
+          confirmButtonText: 'Ok',
+          customClass: {
+            popup: 'swal2-popup',
+            title: 'swal2-title',
+            confirmButton: 'swal2-confirm'
+          }
         }); 
         this.router.navigate(['/blog']);
       },
@@ -54,7 +59,12 @@ export class CrearBlogComponent {
           title: 'Error',
           text: 'Hubo un error al crear el blog. Verifica los campos e intenta nuevamente.',
           icon: 'error',
-          confirmButtonText: 'Ok'
+          confirmButtonText: 'Ok',
+          customClass: {
+            popup: 'swal2-popup',
+            title: 'swal2-title',
+            confirmButton: 'swal2-confirm'
+          }
         }); 
       }
     });
