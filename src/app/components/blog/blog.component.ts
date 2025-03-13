@@ -35,7 +35,7 @@ export class BlogComponent implements OnInit {
   }
 
   editPost(id: number): void {
-    this.router.navigate([`/edit-blog/${id}`]);
+    this.router.navigate([`/blog-editar/${id}`]);
   }
 
   // Método para visualizar el blog seleccionado

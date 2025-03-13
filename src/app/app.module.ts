@@ -42,8 +42,6 @@ import { BlogEditarComponent } from './components/blog-editar/blog-editar.compon
     SociallinksComponent,
     TestimonialsComponent,
     BlogVerComponent,
-    BlogEditarComponent,
-    
     
   ],
   imports: [
@@ -57,7 +55,8 @@ import { BlogEditarComponent } from './components/blog-editar/blog-editar.compon
     HeaderComponent,
     FooterComponent,
     BlogComponent,
-    CrearBlogComponent
+    CrearBlogComponent,
+    BlogEditarComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true },  

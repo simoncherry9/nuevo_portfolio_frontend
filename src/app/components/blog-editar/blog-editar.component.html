@@ -1,1 +1,52 @@
-<p>blog-editar works!</p>
+<app-header></app-header>
+
+<div class="blog-container">
+  <h2 class="blog-title">Editar Blog</h2>
+
+  <form [formGroup]="blogForm" (ngSubmit)="actualizarBlog()">
+    <div class="form-group">
+      <label for="title">Título</label>
+      <input id="title" formControlName="title" type="text" placeholder="Escribe un título" required>
+      <p *ngIf="blogForm.controls['title'].invalid && blogForm.controls['title'].touched" class="error">
+        El título es obligatorio y debe tener al menos 3 caracteres.
+      </p>
+    </div>
+
+    <div class="form-group">
+      <label for="content">Contenido</label>
+      <textarea id="content" formControlName="content" rows="5" placeholder="Escribe el contenido" required></textarea>
+      <p *ngIf="blogForm.controls['content'].invalid && blogForm.controls['content'].touched" class="error">
+        El contenido es obligatorio y debe tener al menos 10 caracteres.
+      </p>
+    </div>
+
+    <div class="form-group">
+      <label for="imageUrl">Imagen URL</label>
+      <input id="imageUrl" formControlName="imageUrl" type="text" placeholder="https://imagen.com/img.jpg" required>
+      <p *ngIf="blogForm.controls['imageUrl'].invalid && blogForm.controls['imageUrl'].touched" class="error">
+        Debes proporcionar una URL válida de la imagen.
+      </p>
+    </div>
+
+    <div class="form-group">
+      <label for="author">Autor</label>
+      <input id="author" formControlName="author" type="text" placeholder="Nombre del autor" required>
+      <p *ngIf="blogForm.controls['author'].invalid && blogForm.controls['author'].touched" class="error">
+        El autor es obligatorio.
+      </p>
+    </div>
+
+    <div class="buttons">
+      <button type="submit" [disabled]="blogForm.invalid">
+        <i class="fas fa-save"></i> Guardar Cambios
+      </button>
+      <button type="button" (click)="cancelarEdicion()">
+        <i class="fas fa-times"></i> Cancelar
+      </button>
+    </div>
+
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  </form>
+</div>
+
+<app-footer></app-footer>
