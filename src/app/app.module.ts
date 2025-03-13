@@ -15,6 +15,8 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { SociallinksComponent } from './components/sociallinks/sociallinks.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { FormsModule } from '@angular/forms';
@@ -42,6 +44,8 @@ import { CrearBlogComponent } from './components/crear-blog/crear-blog.component
     
   ],
   imports: [
+    SweetAlert2Module.forRoot(),
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -51,11 +55,11 @@ import { CrearBlogComponent } from './components/crear-blog/crear-blog.component
     ModalConfirmationComponent,
     FooterComponent,
     BlogComponent,
-    CrearBlogComponent,
+    CrearBlogComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true },  
-    provideHttpClient(withFetch())  
+    provideHttpClient(withFetch()),
   ],
   bootstrap: [AppComponent]
 })
