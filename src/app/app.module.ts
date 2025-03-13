@@ -26,7 +26,6 @@ import { HttpClientModule, provideHttpClient, withFetch, HTTP_INTERCEPTORS } fro
 import { AuthTokenInterceptor } from './interceptors/auth-token.interceptor';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ModalConfirmationComponent } from './components/modal-confirmation/modal-confirmation.component';
 import { CrearBlogComponent } from './components/crear-blog/crear-blog.component';
 import { BlogVerComponent } from './components/blog-ver/blog-ver.component';
 import { BlogEditarComponent } from './components/blog-editar/blog-editar.component';
@@ -56,7 +55,6 @@ import { BlogEditarComponent } from './components/blog-editar/blog-editar.compon
     HttpClientModule,
     MensajesComponent,
     HeaderComponent,
-    ModalConfirmationComponent,
     FooterComponent,
     BlogComponent,
     CrearBlogComponent
