@@ -133,6 +133,17 @@ export class CrearBlogComponent {
   }
 
   cancel() {
-    this.router.navigate(['/blog']);
-  }
+        Swal.fire({
+          title: '¿Estás seguro?',
+          text: '¡Perderás todos los cambios no guardados!',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Sí, cancelar',
+          cancelButtonText: 'No, volver'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.router.navigate(['/blog']);
+          }
+        });
+      }
 }

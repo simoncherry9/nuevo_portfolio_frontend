@@ -43,8 +43,6 @@ import { ExperienciasCrearComponent } from './components/experiencias-crear/expe
     SociallinksComponent,
     TestimonialsComponent,
     BlogVerComponent,
-    ExperienciasCrearComponent,
-    
   ],
   imports: [
     SweetAlert2Module.forRoot(),
@@ -61,6 +59,7 @@ import { ExperienciasCrearComponent } from './components/experiencias-crear/expe
     BlogEditarComponent,
     ExperiencesComponent,
     ExperienciasEditarComponent,
+    ExperienciasCrearComponent,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true },  

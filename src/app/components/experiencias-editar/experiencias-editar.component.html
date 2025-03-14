@@ -89,11 +89,11 @@
     </div>
 
     <div class="buttons">
-      <button type="submit" class="btn btn-primary" [disabled]="isLoading || experienceForm.invalid">
-        <i class="fas fa-save"></i> Actualizar
+      <button type="submit" class="btn btn-primary" [disabled]="isLoading || experienceForm.invalid" aria-label="Actualizar experiencia">
+        <i class="fas fa-save"></i>
       </button>
-      <button type="button" (click)="cancelarEdicion()">
-        <i class="fas fa-times"></i> Cancelar
+      <button type="button" (click)="cancelarEdicion()" aria-label="Cancelar edición">
+        <i class="fas fa-times"></i>
       </button>
     </div>
 

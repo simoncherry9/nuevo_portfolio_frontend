@@ -1,0 +1,123 @@
+.create-experience-container {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 2rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 600px;
+    margin: 60px auto 80px auto;
+    box-shadow: 0 0 20px #bb00ff, 0 0 40px #bb00ff;
+    animation: fadeIn 1s 0.5s forwards, slideUp 1s 0.5s forwards;
+  }
+  
+  .create-experience-container h2 {
+    font-size: 2rem;
+    color: #bb00ff;
+    text-align: center;
+    animation: glow 3s infinite alternate, shrinkGrow 2s ease-in-out 0.5s infinite alternate;
+    margin-bottom: 2rem;
+  }
+  
+  .create-experience-container .form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  
+  .create-experience-container label {
+    font-size: 1rem;
+    color: white;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .create-experience-container input,
+  .create-experience-container textarea,
+  .create-experience-container select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background-color: #333;
+    color: white;
+    font-size: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: border 0.3s, box-shadow 0.3s;
+  }
+  
+  .create-experience-container input:focus,
+  .create-experience-container textarea:focus,
+  .create-experience-container select:focus {
+    border: 2px solid #bb00ff;
+    box-shadow: 0 0 10px #bb00ff;
+  }
+  
+  .create-experience-container input::placeholder,
+  .create-experience-container textarea::placeholder {
+    color: #bb00ff;
+    opacity: 0.7;
+    text-shadow: 0 0 10px #bb00ff, 0 0 20px #bb00ff;
+  }
+  
+  .create-experience-container input:focus::placeholder,
+  .create-experience-container textarea:focus::placeholder {
+    color: #ff00ff;
+    text-shadow: 0 0 15px #ff00ff, 0 0 30px #ff00ff;
+  }
+  
+  .create-experience-container .form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .create-experience-container .submit-btn,
+  .create-experience-container .cancel-btn {
+    background-color: transparent;
+    color: white;
+    font-size: 1.2rem;
+    border: 2px solid #bb00ff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s, color 0.3s, border-color 0.3s;
+  }
+  
+  .create-experience-container .submit-btn:hover,
+  .create-experience-container .cancel-btn:hover {
+    transform: scale(1.1);
+    color: #bb00ff;
+    border-color: #bb00ff;
+  }
+  
+  .create-experience-container .submit-btn i,
+  .create-experience-container .cancel-btn i {
+    margin-right: 0.5rem;
+  }
+  
+  @keyframes glow {
+    0% { color: #bb00ff; text-shadow: 0 0 15px #bb00ff, 0 0 30px #bb00ff; }
+    50% { color: #ff00ff; text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff; }
+    100% { color: #bb00ff; text-shadow: 0 0 15px #bb00ff, 0 0 30px #bb00ff; }
+  }
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    0% { transform: translateY(30px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes shrinkGrow {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+  }
+  
+  .create-experience-container .error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+  
