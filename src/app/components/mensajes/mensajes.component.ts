@@ -21,6 +21,7 @@ import Swal from 'sweetalert2';  // Importando SweetAlert2
 export class MensajesComponent implements OnInit {
   messages: ContactMessage[] = [];
   selectedMessage: ContactMessage | null = null;
+  loading: boolean = true;  // Indicador de carga
 
   constructor(private messageService: ContactMessageService, private router: Router) {}
 
@@ -29,9 +30,16 @@ export class MensajesComponent implements OnInit {
   }
 
   loadMessages(): void {
+    this.loading = true;  // Empieza a cargar
     this.messageService.getMessages().subscribe({
-      next: (data) => (this.messages = data),
-      error: (err) => console.error('Error al obtener mensajes:', err)
+      next: (data) => {
+        this.messages = data;
+        this.loading = false;  // Termina la carga
+      },
+      error: (err) => {
+        console.error('Error al obtener mensajes:', err);
+        this.loading = false;  // Termina la carga, aunque haya error
+      }
     });
   }
 
@@ -39,7 +47,6 @@ export class MensajesComponent implements OnInit {
     this.selectedMessage = message;
   }
 
-  // Reemplazamos la confirmación de modal por SweetAlert2
   confirmDeleteMessage(id: number | null | undefined): void {
     if (id == null) return;
 
@@ -63,15 +70,12 @@ export class MensajesComponent implements OnInit {
     });
   }
 
-  // Método para eliminar el mensaje
   deleteMessage(id: number): void {
     this.messageService.deleteMessage(id).subscribe({
       next: () => {
-        // Filtramos el mensaje eliminado de la lista de mensajes
         this.messages = this.messages.filter((m) => m.id !== id);
         this.selectedMessage = null;  // Limpiar el mensaje seleccionado
 
-        // Mostrar mensaje de éxito de eliminación
         Swal.fire({
           title: '¡Éxito!',
           text: 'Mensaje eliminado con éxito.',

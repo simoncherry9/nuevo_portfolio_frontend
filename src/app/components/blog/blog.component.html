@@ -5,25 +5,28 @@
     <div class="blog-header">
       <h2>Blogs</h2>
     </div>
-    <button class="create-blog-btn" (click)="navigateToCreateBlog()" title="Crear nuevo blog" aria-label="Crear nuevo blog">
-      <i class="fas fa-plus"></i>
+    <button type="button" class="create-blog-btn" (click)="navigateToCreateBlog()" title="Crear nuevo blog" aria-label="Crear nuevo blog">
+      <i class="fas fa-plus" aria-hidden="true"></i>
+      <span class="sr-only">Crear nuevo blog</span> <!-- Texto oculto para lectores de pantalla -->
     </button>
     <ul class="blog-post-list">
       <li *ngFor="let post of blogPosts" (click)="viewPost(post.id)">
         <div class="blog-post">
           <div class="post-image">
-            <img *ngIf="post.imageUrl" [src]="post.imageUrl" alt="Post image" class="post-image-img" />
+            <img *ngIf="post.imageUrl" [src]="post.imageUrl" alt="Imagen del post" class="post-image-img" />
           </div>
           <div class="post-content">
             <h3>{{ post.title }}</h3>
             <p>{{ post.content | slice:0:100 }}...</p>
             <p><small>By {{ post.author }} | Published on {{ post.publishedAt | date }}</small></p>
             <div class="actions">
-              <button (click)="editPost(post.id)">
-                <i class="fas fa-edit"></i> Editar
+              <button type="button" (click)="editPost(post.id)" aria-label="Editar post">
+                <i class="fas fa-edit" aria-hidden="true"></i>
+                <span class="sr-only">Editar</span> <!-- Texto oculto para lectores de pantalla -->
               </button>
-              <button class="delete-btn" (click)="deletePost(post.id); $event.stopPropagation()">
-                <i class="fas fa-trash-alt"></i> Eliminar
+              <button type="button" class="delete-btn" (click)="deletePost(post.id); $event.stopPropagation()" aria-label="Eliminar post">
+                <i class="fas fa-trash-alt" aria-hidden="true"></i>
+                <span class="sr-only">Eliminar</span> <!-- Texto oculto para lectores de pantalla -->
               </button>
             </div>
           </div>

@@ -1,1 +1,40 @@
-<p>experiences works!</p>
+<app-header></app-header>
+
+<div class="main-container">
+  <h2 class="experiences-header">Mis Experiencias</h2>
+
+  <!-- Botón de Añadir Experiencia -->
+  <button class="create-experience-btn" (click)="addExperience()" aria-label="Crear nueva experiencia">
+    <i class="fas fa-plus" aria-hidden="true"></i>
+    <span class="sr-only">Crear nueva experiencia</span>
+  </button>
+
+  <!-- Cargando experiencias -->
+  <div *ngIf="loading" class="loading">Cargando experiencias...</div>
+
+  <!-- Lista de experiencias -->
+  <ul *ngIf="!loading && experiences.length > 0" class="experience-list">
+    <li *ngFor="let exp of experiences" class="experience-item">
+      <h3>{{ exp.title }} en {{ exp.company }}</h3>
+      <p>
+        Desde {{ exp.startDate | date:'yyyy-MM-dd' }} 
+        <span *ngIf="exp.endDate"> hasta {{ exp.endDate | date:'yyyy-MM-dd' }}</span>
+      </p>
+      <p>{{ exp.description }}</p>
+      <div class="buttons">
+        <button class="edit-btn" (click)="editExperience(exp.id!)" aria-label="Editar">
+          <i class="fas fa-edit"></i>
+        </button>
+        <button class="delete-btn" (click)="deleteExperience(exp.id!)" aria-label="Eliminar">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </div>
+    </li>
+  </ul>
+
+  <p *ngIf="!loading && experiences.length === 0" class="no-experiences">
+    No hay experiencias disponibles.
+  </p>
+</div>
+
+<app-footer></app-footer>

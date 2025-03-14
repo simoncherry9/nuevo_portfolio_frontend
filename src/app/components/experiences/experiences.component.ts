@@ -1,11 +1,86 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
+import { ExperienceService } from '../../services/experiencia.service';
+import { Experience } from '../../interfaces/experiencia';
+import Swal from 'sweetalert2';  // Importa SweetAlert2
+import { Router } from '@angular/router'; // Importa Router
 
 @Component({
   selector: 'app-experiences',
-  standalone: false,
+  standalone: true,
   templateUrl: './experiences.component.html',
-  styleUrl: './experiences.component.css'
+  styleUrls: ['./experiences.component.css'],
+  imports: [CommonModule, HeaderComponent, FooterComponent]
 })
-export class ExperiencesComponent {
+export class ExperiencesComponent implements OnInit {
+  experiences: Experience[] = [];
+  loading = true;
 
+  constructor(
+    private experienceService: ExperienceService,
+    private router: Router  // Inyecta el Router
+  ) {}
+
+  ngOnInit(): void {
+    this.fetchExperiences();
+  }
+
+  fetchExperiences(): void {
+    this.experienceService.getAllExperiences().subscribe({
+      next: (data) => {
+        this.experiences = data;
+        this.loading = false;
+      },
+      error: (err) => {
+        console.error('Error al obtener experiencias:', err);
+        this.loading = false;
+      }
+    });
+  }
+
+  editExperience(id: number): void {
+    // Redirige a la página de edición con el ID de la experiencia
+    this.router.navigate([`/experiencia-editar/${id}`]);
+  }
+
+  deleteExperience(id: number): void {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'No podrás revertir esta acción!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, eliminar!',
+      cancelButtonText: 'Cancelar',
+      customClass: {
+        popup: 'swal2-popup',
+        title: 'swal2-title',
+        confirmButton: 'swal2-confirm',
+        cancelButton: 'swal2-cancel'
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.experienceService.deleteExperience(id).subscribe(() => {
+          this.experiences = this.experiences.filter(exp => exp.id !== id);
+          Swal.fire({
+            title: '¡Eliminado!',
+            text: 'La experiencia ha sido eliminada con éxito.',
+            icon: 'success',
+            confirmButtonText: 'Ok',
+            customClass: {
+              popup: 'swal2-popup',
+              title: 'swal2-title',
+              confirmButton: 'swal2-confirm'
+            }
+          });
+        });
+      }
+    });
+  }
+
+  // Nueva función para redirigir a la página de creación de experiencia
+  addExperience(): void {
+    this.router.navigate(['/experiencia-crear']);  // Redirige a la página de creación de experiencia
+  }
 }

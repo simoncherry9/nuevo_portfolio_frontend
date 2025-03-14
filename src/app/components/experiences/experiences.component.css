@@ -1,0 +1,198 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem;
+    margin-top: 60px;
+    min-height: calc(100vh - 60px);
+    background-color: transparent;
+    opacity: 0;
+    animation: fadeIn 1s forwards, slideUp 1s 0.5s forwards;
+    width: 100%;
+  }
+  
+  .experiences-header {
+    font-size: 2rem;
+    color: #bb00ff;
+    margin-bottom: 3rem; /* Ajustado para dar más espacio entre el header y el listado */
+    text-align: center;
+    animation: neonGlow 3s infinite alternate;
+    transform-origin: center;
+    padding-bottom: 1rem; /* Asegura que haya suficiente espacio */
+  }
+  
+  .create-experience-btn {
+    background-color: #bb00ff;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 100%;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .create-experience-btn i {
+    font-size: 1.5rem;
+  }
+  
+  .create-experience-btn:hover {
+    background-color: #ff00ff;
+    transform: scale(1.1);
+  }
+  
+  .experience-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 900px;
+  }
+  
+  .experience-item {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-shadow: 0 0 18px rgba(128, 0, 128, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeInLeft 0.5s ease-out;
+    width: 100%;
+  }
+  
+  .experience-item h3 {
+    font-size: 1.8rem;
+    color: #bb00ff;
+  }
+  
+  .experience-item p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: white;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+  }
+  
+  .edit-btn, .delete-btn {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 0.3s, color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .edit-btn:hover, .delete-btn:hover {
+    transform: scale(1.1);
+    color: #bb00ff;
+  }
+  
+  .delete-btn {
+    color: #bb00ff;
+  }
+  
+  .delete-btn:hover {
+    color: #ff6347;
+  }
+  
+  .no-experiences {
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+  }
+  
+  @media (max-width: 768px) {
+    .experience-item h3 {
+      font-size: 1.5rem;
+    }
+  
+    .experience-item p {
+      font-size: 1rem;
+    }
+  
+    .buttons button {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .experience-item h3 {
+      font-size: 1.3rem;
+    }
+  
+    .experience-item p {
+      font-size: 0.9rem;
+    }
+  
+    .buttons button {
+      font-size: 0.8rem;
+    }
+  }
+  
+  @keyframes neonGlow {
+    0% {
+      color: #bb00ff;
+      text-shadow: 0 0 15px #bb00ff, 0 0 30px #bb00ff, 0 0 50px #bb00ff;
+      transform: scale(1);
+    }
+    50% {
+      color: #ff00ff;
+      text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff;
+      transform: scale(1.2);
+    }
+    100% {
+      color: #bb00ff;
+      text-shadow: 0 0 15px #bb00ff, 0 0 30px #bb00ff, 0 0 50px #bb00ff;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideUp {
+    0% {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  

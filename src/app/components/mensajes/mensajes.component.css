@@ -20,6 +20,12 @@
     animation: fadeIn 1s 0.5s forwards, pulse 3s infinite alternate;
 }
 
+.no-experiences {
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+  }
+
 .mensajes-header h2 {
     font-size: 2rem;
     margin-bottom: 0.5rem;

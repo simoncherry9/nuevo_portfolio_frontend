@@ -29,19 +29,22 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CrearBlogComponent } from './components/crear-blog/crear-blog.component';
 import { BlogVerComponent } from './components/blog-ver/blog-ver.component';
 import { BlogEditarComponent } from './components/blog-editar/blog-editar.component';
+import { ExperienciasEditarComponent } from './components/experiencias-editar/experiencias-editar.component';
+import { ExperienciasCrearComponent } from './components/experiencias-crear/experiencias-crear.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
     PortfolioComponent,
-    ExperiencesComponent,
     ImagesComponent,
     ProjectsComponent,
     SkillsComponent,
     SociallinksComponent,
     TestimonialsComponent,
     BlogVerComponent,
+    ExperienciasEditarComponent,
+    ExperienciasCrearComponent,
     
   ],
   imports: [
@@ -56,7 +59,8 @@ import { BlogEditarComponent } from './components/blog-editar/blog-editar.compon
     FooterComponent,
     BlogComponent,
     CrearBlogComponent,
-    BlogEditarComponent
+    BlogEditarComponent,
+    ExperiencesComponent,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true },  

@@ -5,7 +5,7 @@
     <h2>Mensajes de Contacto</h2>
   </div>
 
-  <ul class="message-list">
+  <ul class="message-list" *ngIf="!loading">
     <li *ngFor="let message of messages" (click)="selectMessage(message)">
       <div class="message-item">
         <strong>{{ message.name }}</strong> {{ message.email }}
@@ -16,6 +16,9 @@
     </li>
   </ul>
 
+  <!-- Cargando Mensajes -->
+  <p *ngIf="loading">Cargando mensajes...</p>
+
   <div *ngIf="selectedMessage" class="message-detail">
     <h3>Detalles del Mensaje</h3>
     <p><strong>Nombre:</strong> {{ selectedMessage.name }}</p>
@@ -24,6 +27,9 @@
     <button (click)="selectedMessage = null" class="close-btn">Cerrar</button>
   </div>
 
+  <p *ngIf="!loading && messages.length === 0" class="no-experiences">
+    No hay mensajes disponibles.
+  </p>
 </div>
 
 <app-footer></app-footer>
