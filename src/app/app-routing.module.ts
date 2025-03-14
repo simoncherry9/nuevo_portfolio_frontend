@@ -7,7 +7,6 @@ import { BlogVerComponent } from './components/blog-ver/blog-ver.component';
 import { BlogEditarComponent } from './components/blog-editar/blog-editar.component'; 
 import { CrearBlogComponent } from './components/crear-blog/crear-blog.component';
 import { ExperiencesComponent } from './components/experiences/experiences.component';
-import { ImagesComponent } from './components/images/images.component';
 import { LoginComponent } from './components/login/login.component';
 import { MensajesComponent } from './components/mensajes/mensajes.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
@@ -17,6 +16,8 @@ import { SociallinksComponent } from './components/sociallinks/sociallinks.compo
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 import { ExperienciasCrearComponent } from './components/experiencias-crear/experiencias-crear.component'; 
 import { ExperienciasEditarComponent } from './components/experiencias-editar/experiencias-editar.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
@@ -35,12 +36,13 @@ const routes: Routes = [
   { path: 'experiences', component: ExperiencesComponent, canActivate: [AuthGuard] },
   { path: 'experiencias-crear', component: ExperienciasCrearComponent, canActivate: [AuthGuard] },
   { path: 'experiencias-editar/:id', component: ExperienciasEditarComponent, canActivate: [AuthGuard] }, 
-  { path: 'images', component: ImagesComponent, canActivate: [AuthGuard] },
   { path: 'mensajes', component: MensajesComponent, canActivate: [AuthGuard] },
   { path: 'projects', component: ProjectsComponent, canActivate: [AuthGuard] },
   { path: 'skills', component: SkillsComponent, canActivate: [AuthGuard] },
   { path: 'sociallinks', component: SociallinksComponent, canActivate: [AuthGuard] },
   { path: 'testimonials', component: TestimonialsComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'profile-edit/:id', component: ProfileEditComponent, canActivate: [AuthGuard] },
 
   { path: '', redirectTo: '/portfolio', pathMatch: 'full' },
   { path: '**', redirectTo: '/portfolio' }

@@ -1,0 +1,33 @@
+<app-header></app-header>
+
+<div class="profile-container">
+  <h1>PERFIL</h1>
+
+  <!-- Indicador de carga -->
+  <div *ngIf="isLoading" class="loading-indicator">Cargando perfiles...</div>
+
+  <!-- Mensaje de error -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Listado de perfiles -->
+  <div *ngIf="!isLoading && !errorMessage" class="profile-list">
+    <div *ngFor="let profile of profiles" class="profile-card">
+      <img [src]="profile.imageurl || 'https://via.placeholder.com/150'" alt="Imagen de perfil" class="profile-image">
+      <div class="profile-details">
+        <h2>{{ profile.nombre }} {{ profile.apellido }}</h2>
+        <p><strong>Correo:</strong> {{ profile.correo_electronico }}</p>
+        <p><strong>Ciudad:</strong> {{ profile.ciudad }}</p>
+        <p><strong>Provincia:</strong> {{ profile.provincia }}</p>
+        <p><strong>País:</strong> {{ profile.pais }}</p>
+        <p><strong>Descripción:</strong> {{ profile.descripcion }}</p>
+      </div>
+      <button (click)="editProfile(profile.id)" class="edit-btn" type="button" aria-label="Editar perfil">
+        <i class="fas fa-edit"></i>
+      </button>      
+          </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

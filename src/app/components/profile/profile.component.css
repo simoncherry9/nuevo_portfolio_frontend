@@ -1,0 +1,206 @@
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    margin-top: 60px;
+    min-height: calc(100vh - 60px);
+    background-color: transparent;
+    opacity: 0;
+    animation: fadeIn 1s forwards, slideUp 1s 0.5s forwards;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #bb00ff;
+    text-align: center;
+    animation: glow 3s infinite alternate;
+  }
+  
+  .loading-indicator {
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  .profile-list {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .profile-card {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0 0 18px rgba(128, 0, 128, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeInLeft 0.5s ease-out;
+    width: 100%;
+  }
+  
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-details {
+    width: 100%;
+    color: white;
+    text-align: left;
+  }
+  
+  .profile-details h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: #bb00ff;
+  }
+  
+  .profile-details p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .edit-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #bb00ff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    margin-top: 1rem;
+  }
+  
+  .edit-btn:hover {
+    transform: scale(1.1);
+    background-color: #ff00ff;
+  }
+  
+  .edit-btn i {
+    font-size: 1.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+  
+    .profile-card {
+      padding: 1rem;
+    }
+  
+    .profile-details h2 {
+      font-size: 1.6rem;
+    }
+  
+    .profile-details p {
+      font-size: 0.9rem;
+    }
+  
+    .profile-image {
+      width: 120px;
+      height: 120px;
+    }
+  
+    .edit-btn {
+      font-size: 1rem;
+      padding: 0.4rem 0.8rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.6rem;
+    }
+  
+    .profile-card {
+      padding: 0.8rem;
+    }
+  
+    .profile-details h2 {
+      font-size: 1.4rem;
+    }
+  
+    .profile-details p {
+      font-size: 0.9rem;
+    }
+  
+    .profile-image {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .edit-btn {
+      font-size: 0.9rem;
+      padding: 0.3rem 0.7rem;
+    }
+  }
+  
+  @keyframes glow {
+    0% {
+      color: #bb00ff;
+      text-shadow: 0 0 15px #bb00ff, 0 0 30px #bb00ff, 0 0 50px #bb00ff;
+    }
+    50% {
+      color: #ff00ff;
+      text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff;
+    }
+    100% {
+      color: #bb00ff;
+      text-shadow: 0 0 15px #bb00ff, 0 0 30px #bb00ff, 0 0 50px #bb00ff;
+    }
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideUp {
+    0% {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
