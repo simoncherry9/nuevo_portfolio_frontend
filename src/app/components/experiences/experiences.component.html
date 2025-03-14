@@ -3,16 +3,13 @@
 <div class="main-container">
   <h2 class="experiences-header">Mis Experiencias</h2>
 
-  <!-- Botón de Añadir Experiencia -->
   <button class="create-experience-btn" (click)="addExperience()" aria-label="Crear nueva experiencia">
     <i class="fas fa-plus" aria-hidden="true"></i>
     <span class="sr-only">Crear nueva experiencia</span>
   </button>
 
-  <!-- Cargando experiencias -->
   <div *ngIf="loading" class="loading">Cargando experiencias...</div>
 
-  <!-- Lista de experiencias -->
   <ul *ngIf="!loading && experiences.length > 0" class="experience-list">
     <li *ngFor="let exp of experiences" class="experience-item">
       <h3>{{ exp.title }} en {{ exp.company }}</h3>

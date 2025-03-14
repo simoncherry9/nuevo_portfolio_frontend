@@ -11,27 +11,22 @@ export class BlogService {
 
   constructor(private http: HttpClient) { }
 
-  // Obtener todos los blogs
   getBlogPosts(): Observable<BlogPost[]> {
     return this.http.get<BlogPost[]>(this.apiUrl);
   }
 
-  // Obtener un solo blog por id
   getBlogPost(id: number): Observable<BlogPost> {
     return this.http.get<BlogPost>(`${this.apiUrl}/${id}`);
   }
 
-  // Crear un nuevo blog
   createBlogPost(blogPost: BlogPost): Observable<BlogPost> {
     return this.http.post<BlogPost>(this.apiUrl, blogPost);
   }
 
-  // Actualizar un blog existente
   updateBlogPost(id: number, blogPost: BlogPost): Observable<BlogPost> {
     return this.http.put<BlogPost>(`${this.apiUrl}/${id}`, blogPost);
   }
 
-  // Eliminar un blog
   deleteBlogPost(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }

@@ -5,7 +5,7 @@ import { ContactMessage } from '../../interfaces/contact-message';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
-import Swal from 'sweetalert2';  // Importando SweetAlert2
+import Swal from 'sweetalert2';  
 
 @Component({
   selector: 'app-mensajes',
@@ -21,7 +21,7 @@ import Swal from 'sweetalert2';  // Importando SweetAlert2
 export class MensajesComponent implements OnInit {
   messages: ContactMessage[] = [];
   selectedMessage: ContactMessage | null = null;
-  loading: boolean = true;  // Indicador de carga
+  loading: boolean = true;  
 
   constructor(private messageService: ContactMessageService, private router: Router) {}
 
@@ -30,15 +30,15 @@ export class MensajesComponent implements OnInit {
   }
 
   loadMessages(): void {
-    this.loading = true;  // Empieza a cargar
+    this.loading = true;  
     this.messageService.getMessages().subscribe({
       next: (data) => {
         this.messages = data;
-        this.loading = false;  // Termina la carga
+        this.loading = false;  
       },
       error: (err) => {
         console.error('Error al obtener mensajes:', err);
-        this.loading = false;  // Termina la carga, aunque haya error
+        this.loading = false;  
       }
     });
   }
@@ -65,7 +65,7 @@ export class MensajesComponent implements OnInit {
       }
     }).then((result) => {
       if (result.isConfirmed) {
-        this.deleteMessage(id);  // Si se confirma, se elimina el mensaje
+        this.deleteMessage(id);  
       }
     });
   }
@@ -74,7 +74,7 @@ export class MensajesComponent implements OnInit {
     this.messageService.deleteMessage(id).subscribe({
       next: () => {
         this.messages = this.messages.filter((m) => m.id !== id);
-        this.selectedMessage = null;  // Limpiar el mensaje seleccionado
+        this.selectedMessage = null;  
 
         Swal.fire({
           title: '¡Éxito!',

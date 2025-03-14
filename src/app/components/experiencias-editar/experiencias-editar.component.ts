@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
-import Swal from 'sweetalert2'; // Importar SweetAlert2
+import Swal from 'sweetalert2'; 
 
 @Component({
   selector: 'app-experiencias-editar',
@@ -52,7 +52,7 @@ export class ExperienciasEditarComponent implements OnInit {
     this.experienceService.getAllExperiences().subscribe({
       next: (experiences) => {
         this.experience = experiences.find(exp => exp.id === this.id) || this.experience;
-        // Formatear las fechas al cargar la experiencia
+        
         this.formatDates();
         this.isLoading = false;
       },
@@ -106,12 +106,12 @@ export class ExperienciasEditarComponent implements OnInit {
   }
 
   private formatDate(date: string): string {
-    // Si la fecha no está vacía, formatearla a YYYY-MM-DD
+    
     const d = new Date(date);
     if (!isNaN(d.getTime())) {
-      return d.toISOString().split('T')[0]; // Esto da la fecha en formato YYYY-MM-DD
+      return d.toISOString().split('T')[0]; 
     }
-    return ''; // Si no es una fecha válida, devolver cadena vacía
+    return ''; 
   }
 
   private handleError(message: string): void {

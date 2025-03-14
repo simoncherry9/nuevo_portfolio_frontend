@@ -1,5 +1,5 @@
 export interface Experience {
-    id?: number; // Opcional porque al crear aún no tiene ID
+    id?: number; 
     title: string;
     company: string;
     startDate: string;

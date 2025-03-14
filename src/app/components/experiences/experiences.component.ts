@@ -4,8 +4,8 @@ import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ExperienceService } from '../../services/experiencia.service';
 import { Experience } from '../../interfaces/experiencia';
-import Swal from 'sweetalert2';  // Importa SweetAlert2
-import { Router } from '@angular/router'; // Importa Router
+import Swal from 'sweetalert2';  
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-experiences',
@@ -20,7 +20,7 @@ export class ExperiencesComponent implements OnInit {
 
   constructor(
     private experienceService: ExperienceService,
-    private router: Router  // Inyecta el Router
+    private router: Router  
   ) {}
 
   ngOnInit(): void {
@@ -41,7 +41,7 @@ export class ExperiencesComponent implements OnInit {
   }
 
   editExperience(id: number): void {
-    // Redirige a la página de edición con el ID de la experiencia
+    
     this.router.navigate([`/experiencias-editar/${id}`]);
   }
 
@@ -79,8 +79,8 @@ export class ExperiencesComponent implements OnInit {
     });
   }
 
-  // Nueva función para redirigir a la página de creación de experiencia
+  
   addExperience(): void {
-    this.router.navigate(['/experiencias-crear']);  // Redirige a la página de creación de experiencia
+    this.router.navigate(['/experiencias-crear']);  
   }
 }
