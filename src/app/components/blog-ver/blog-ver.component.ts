@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BlogService } from '../../services/blog.service'; // Asegúrate de tener el servicio importado
-import { BlogPost } from '../../interfaces/blog';  // La interfaz BlogPost que ya definiste
+import { BlogService } from '../../services/blog.service'; 
+import { BlogPost } from '../../interfaces/blog';  
 
 @Component({
   selector: 'app-blog-ver',
@@ -16,11 +16,11 @@ export class BlogVerComponent implements OnInit {
   constructor(
     private blogService: BlogService,
     private route: ActivatedRoute,
-    private router: Router // Para redirigir a la página de blogs
+    private router: Router 
   ) { }
 
   ngOnInit(): void {
-    // Obtener el 'id' desde la ruta
+    
     const id = Number(this.route.snapshot.paramMap.get('id'));
     
     if (id) {
@@ -36,7 +36,7 @@ export class BlogVerComponent implements OnInit {
     }
   }
 
-  // Método para navegar hacia la página de blogs
+  
   goBack(): void {
     this.router.navigate(['/blog']);
   }

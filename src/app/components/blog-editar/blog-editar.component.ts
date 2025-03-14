@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { BlogService } from '../../services/blog.service';
 import Swal from 'sweetalert2';
 
-// Importar Header y Footer si son standalone
+
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 

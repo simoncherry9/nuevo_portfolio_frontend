@@ -4,7 +4,7 @@
     border-radius: 12px;
     width: 100%;
     max-width: 600px;
-    margin: 60px auto 80px auto; /* Aumentado margin-top y margin-bottom */
+    margin: 60px auto 80px auto;
     box-shadow: 0 0 20px #bb00ff, 0 0 40px #bb00ff;
     animation: fadeIn 1s 0.5s forwards, slideUp 1s 0.5s forwards;
   }
@@ -13,7 +13,7 @@
     font-size: 2rem;
     color: #bb00ff;
     text-align: center;
-    animation: glow 3s infinite alternate, shrinkGrow 2s ease-in-out 0.5s infinite alternate; /* Añadido shrinkGrow */
+    animation: glow 3s infinite alternate, shrinkGrow 2s ease-in-out 0.5s infinite alternate;
     margin-bottom: 2rem;
   }
   
@@ -131,10 +131,10 @@
       transform: scale(1);
     }
     50% {
-      transform: scale(0.95); /* Achicar */
+      transform: scale(0.95);
     }
     100% {
-      transform: scale(1); /* Regresa al tamaño original */
+      transform: scale(1);
     }
   }
   

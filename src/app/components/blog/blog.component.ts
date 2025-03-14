@@ -5,7 +5,7 @@ import { BlogPost } from '../../interfaces/blog';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
-import Swal from 'sweetalert2';  // Importa SweetAlert2
+import Swal from 'sweetalert2';  
 
 @Component({
   selector: 'app-blog',
@@ -20,7 +20,7 @@ import Swal from 'sweetalert2';  // Importa SweetAlert2
 })
 export class BlogComponent implements OnInit {
   blogPosts: BlogPost[] = [];
-  selectedPost: BlogPost | null = null; // Para almacenar el post seleccionado
+  selectedPost: BlogPost | null = null; 
 
   constructor(private blogService: BlogService, private router: Router) {}
 
@@ -38,12 +38,12 @@ export class BlogComponent implements OnInit {
     this.router.navigate([`/blog-editar/${id}`]);
   }
 
-  // Método para visualizar el blog seleccionado
+  
   viewPost(id: number): void {
-    this.router.navigate([`/blog-ver/${id}`]); // Redirige a la ruta /blog-ver/{id}
+    this.router.navigate([`/blog-ver/${id}`]); 
   }
 
-  // Método para eliminar el post usando SweetAlert2
+  
   deletePost(id: number): void {
     Swal.fire({
       title: '¿Estás seguro?',
@@ -61,7 +61,7 @@ export class BlogComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.blogService.deleteBlogPost(id).subscribe(() => {
-          this.loadBlogPosts();  // Recargamos los posts después de la eliminación
+          this.loadBlogPosts();  
           Swal.fire({
             title: '¡Eliminado!',
             text: 'El blog ha sido eliminado con éxito.',
@@ -78,7 +78,7 @@ export class BlogComponent implements OnInit {
     });
   }
 
-  // Método para navegar a la página de creación de blog
+  
   navigateToCreateBlog(): void {
     this.router.navigate(['/crear-blog']);
   }

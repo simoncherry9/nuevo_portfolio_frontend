@@ -65,13 +65,13 @@
       </div>
 
       <div class="form-actions">
-        <button type="submit" class="submit-btn" [disabled]="blogForm.invalid">
-          <i class="fas fa-save"></i> Guardar Blog
+        <button type="submit" class="submit-btn" [disabled]="blogForm.invalid" aria-label="Guardar Blog">
+          <i class="fas fa-save"></i>
         </button>
-        <button type="button" class="cancel-btn" (click)="cancel()">
-          <i class="fas fa-times"></i> Cancelar
+        <button type="button" class="cancel-btn" (click)="cancel()" aria-label="Cancelar">
+          <i class="fas fa-times"></i>
         </button>
-      </div>
+      </div>      
     </form>
   </div>
 </div>

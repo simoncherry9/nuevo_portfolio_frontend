@@ -60,7 +60,7 @@
     animation: fadeIn 1s 1.5s forwards;
 }
 
-/* Efecto hover en los botones */
+
 .button-card:hover {
     transform: scale(1.05);
     box-shadow: 0 0 18px #bb00ff, 0 0 28px #bb00ff;
@@ -68,7 +68,7 @@
     background-color: #0000
 }
 
-/* Icono del botón */
+
 .card-icon {
     font-size: 1.6rem;
     color: #bb00ff;
@@ -76,7 +76,7 @@
     transition: color 0.3s;
 }
 
-/* Hover sobre el icono */
+
 .button-card:hover .card-icon {
     color: #fff;
 }
@@ -90,12 +90,12 @@
     transition: color 0.3s;
 }
 
-/* Hover sobre el texto */
+
 .button-card:hover h3 {
     color: #bb00ff;
 }
 
-/* Añadir animación a los botones cuando se muestran */
+
 @keyframes glow {
     0% {
         color: #bb00ff;
@@ -111,7 +111,7 @@
     }
 }
 
-/* Animación fadeIn para los botones */
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -121,7 +121,7 @@
     }
 }
 
-/* Animación slideUp para los botones */
+
 @keyframes slideUp {
     0% {
         transform: translateY(50px);
@@ -133,7 +133,7 @@
     }
 }
 
-/* Pulsar animación (opcional) */
+
 @keyframes pulse {
     0% {
         transform: scale(1);
@@ -146,7 +146,7 @@
     }
 }
 
-/* Medias queries para pantallas pequeñas */
+
 @media (max-width: 768px) {
     .panel-header h1 {
         font-size: 1.8rem;

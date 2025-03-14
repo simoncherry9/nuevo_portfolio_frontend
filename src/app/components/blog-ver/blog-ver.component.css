@@ -14,29 +14,29 @@
 
 .blog-post {
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Aumentar opacidad para un fondo más oscuro */
-    border-radius: 15px; /* Bordes más suaves */
-    padding: 2.5rem; /* Un poco más de padding */
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    padding: 2.5rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    box-shadow: 0 0 30px rgba(128, 0, 128, 0.5); /* Sombra más grande */
+    box-shadow: 0 0 30px rgba(128, 0, 128, 0.5);
     transition: transform 0.3s, box-shadow 0.3s;
     animation: fadeInLeft 0.5s ease-out;
 }
 
 .blog-title {
-    font-size: 3rem; /* Aumentar tamaño del título */
-    margin-bottom: 1.5rem; /* Un poco más de espacio debajo */
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
     color: #bb00ff;
     text-align: center;
-    animation: glow 3s infinite alternate; /* Efecto neón */
+    animation: glow 3s infinite alternate;
 }
 
 .blog-meta {
     margin: 1rem 0;
-    color: #ddd; /* Color más claro para la meta información */
+    color: #ddd;
 }
 
 .author, .published-at {
@@ -52,8 +52,8 @@
 }
 
 .blog-image {
-    width: 80%; /* Reduce el tamaño de la imagen en pantallas grandes */
-    height: 250px; /* Reduce el alto */
+    width: 80%;
+    height: 250px;
     border-radius: 12px;
     overflow: hidden;
     margin-bottom: 2rem;
@@ -68,14 +68,14 @@
 }
 
 .blog-image:hover img {
-    transform: scale(1.05); /* Efecto zoom en la imagen al pasar el ratón */
+    transform: scale(1.05);
 }
 
 .blog-content {
     margin-bottom: 2rem;
     color: white;
-    font-size: 1.2rem; /* Mayor tamaño de fuente */
-    line-height: 1.6; /* Mejor legibilidad */
+    font-size: 1.2rem;
+    line-height: 1.6;
 }
 
 .blog-actions {
@@ -88,7 +88,7 @@
 .blog-actions button {
     background-color: transparent;
     color: white;
-    border: 1px solid #bb00ff; /* Añadir borde con el mismo color que el texto */
+    border: 1px solid #bb00ff;
     font-size: 1.2rem;
     cursor: pointer;
     padding: 0.5rem 1.5rem;
@@ -99,7 +99,7 @@
 .blog-actions button:hover {
     transform: scale(1.1);
     color: #bb00ff;
-    border-color: #ff00ff; /* Cambio de color del borde al hacer hover */
+    border-color: #ff00ff;
 }
 
 .blog-actions button i {
@@ -107,19 +107,19 @@
     margin-right: 0.5rem;
 }
 
-/* Medios de pantalla grandes */
+
 @media (min-width: 1024px) {
     .blog-image {
-        width: 70%; /* Hacer la imagen más pequeña en pantallas grandes */
-        height: 300px; /* Un tamaño de imagen adecuado */
+        width: 70%;
+        height: 300px;
     }
 
     .blog-title {
-        font-size: 3.5rem; /* Aumentar el tamaño del título en pantallas grandes */
+        font-size: 3.5rem;
     }
 
     .blog-content {
-        font-size: 1.3rem; /* Mejor tamaño de fuente en pantallas grandes */
+        font-size: 1.3rem;
     }
 }
 

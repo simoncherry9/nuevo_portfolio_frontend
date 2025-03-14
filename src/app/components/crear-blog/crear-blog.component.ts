@@ -28,7 +28,7 @@ export class CrearBlogComponent {
     publishedAt: new Date().toISOString().split('T')[0], 
     author: '',
     isActive: true,
-    imageUrl: ''  // Asegúrate de que esta propiedad esté presente
+    imageUrl: ''  
   };
 
   constructor(
@@ -37,7 +37,7 @@ export class CrearBlogComponent {
   ) {}
 
   onSubmit() {
-    // Validación de campos vacíos con mensajes específicos
+    
     if (!this.blogPost.title) {
       Swal.fire({
         title: 'Error',
@@ -50,7 +50,7 @@ export class CrearBlogComponent {
           confirmButton: 'swal2-confirm'
         }
       });
-      return;  // Detener la ejecución si falta el título
+      return;  
     }
 
     if (!this.blogPost.content) {
@@ -65,7 +65,7 @@ export class CrearBlogComponent {
           confirmButton: 'swal2-confirm'
         }
       });
-      return;  // Detener la ejecución si falta el contenido
+      return;  
     }
 
     if (!this.blogPost.author) {
@@ -80,7 +80,7 @@ export class CrearBlogComponent {
           confirmButton: 'swal2-confirm'
         }
       });
-      return;  // Detener la ejecución si falta el autor
+      return;  
     }
 
     if (!this.blogPost.imageUrl) {
@@ -95,10 +95,10 @@ export class CrearBlogComponent {
           confirmButton: 'swal2-confirm'
         }
       });
-      return;  // Detener la ejecución si falta la imagen
+      return;  
     }
 
-    // Si todos los campos son válidos, proceder a crear el blog
+    
     this.blogService.createBlogPost(this.blogPost).subscribe({
       next: (response) => {
         console.log('Blog creado:', response);
