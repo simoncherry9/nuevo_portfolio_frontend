@@ -113,11 +113,11 @@
     color: #ff6347;
   }
   
-  .no-experiences {
+ .no-experiences {
     font-size: 1.2rem;
     color: white;
     text-align: center;
-  }
+  } 
   
   @media (max-width: 768px) {
     .experience-item h3 {

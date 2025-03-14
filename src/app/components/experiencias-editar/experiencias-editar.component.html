@@ -1,1 +1,103 @@
-<p>experiencias-editar works!</p>
+<app-header></app-header>
+
+<div class="experience-container">
+  <h2 class="experience-title">Editar Experiencia</h2>
+
+  <form (ngSubmit)="updateExperience()" #experienceForm="ngForm">
+    <div class="form-group">
+      <label for="title">Título</label>
+      <input
+        id="title"
+        type="text"
+        class="form-control"
+        [(ngModel)]="experience.title"
+        name="title"
+        required
+        #title="ngModel"
+      />
+      <div *ngIf="title.invalid && title.touched" class="text-danger">
+        El título es obligatorio.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="company">Compañía</label>
+      <input
+        id="company"
+        type="text"
+        class="form-control"
+        [(ngModel)]="experience.company"
+        name="company"
+        required
+        #company="ngModel"
+      />
+      <div *ngIf="company.invalid && company.touched" class="text-danger">
+        La compañía es obligatoria.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="startDate">Fecha de inicio</label>
+      <input
+        id="startDate"
+        type="date"
+        class="form-control"
+        [(ngModel)]="experience.startDate"
+        name="startDate"
+        required
+        #startDate="ngModel"
+      />
+      <div *ngIf="startDate.invalid && startDate.touched" class="text-danger">
+        La fecha de inicio es obligatoria.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="endDate">Fecha de fin</label>
+      <input
+        id="endDate"
+        type="date"
+        class="form-control"
+        [(ngModel)]="experience.endDate"
+        name="endDate"
+        #endDate="ngModel"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Descripción</label>
+      <textarea
+        id="description"
+        class="form-control"
+        [(ngModel)]="experience.description"
+        name="description"
+        rows="3"
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="isActive">¿Está activa?</label>
+      <select
+        id="isActive"
+        class="form-control"
+        [(ngModel)]="experience.isActive"
+        name="isActive"
+      >
+        <option [ngValue]="true">Sí</option>
+        <option [ngValue]="false">No</option>
+      </select>
+    </div>
+
+    <div class="buttons">
+      <button type="submit" class="btn btn-primary" [disabled]="isLoading || experienceForm.invalid">
+        <i class="fas fa-save"></i> Actualizar
+      </button>
+      <button type="button" (click)="cancelarEdicion()">
+        <i class="fas fa-times"></i> Cancelar
+      </button>
+    </div>
+
+  </form>
+</div>
+
+<app-footer></app-footer>

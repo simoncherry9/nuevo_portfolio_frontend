@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './components/admin/admin.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { BlogVerComponent } from './components/blog-ver/blog-ver.component';
-import { BlogEditarComponent } from './components/blog-editar/blog-editar.component'; // 👈 Importar el componente
+import { BlogEditarComponent } from './components/blog-editar/blog-editar.component'; 
 import { CrearBlogComponent } from './components/crear-blog/crear-blog.component';
 import { ExperiencesComponent } from './components/experiences/experiences.component';
 import { ImagesComponent } from './components/images/images.component';
@@ -15,11 +15,13 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { SociallinksComponent } from './components/sociallinks/sociallinks.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
+import { ExperienciasCrearComponent } from './components/experiencias-crear/experiencias-crear.component'; 
+import { ExperienciasEditarComponent } from './components/experiencias-editar/experiencias-editar.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },   
-  { path: 'portfolio', component: PortfolioComponent },  
+  { path: 'login', component: LoginComponent },
+  { path: 'portfolio', component: PortfolioComponent },
 
   {
     path: 'admin',
@@ -28,9 +30,11 @@ const routes: Routes = [
   },
   { path: 'blog', component: BlogComponent, canActivate: [AuthGuard] },
   { path: 'blog-ver/:id', component: BlogVerComponent },
-  { path: 'blog-editar/:id', component: BlogEditarComponent, canActivate: [AuthGuard] }, // 👈 Nueva ruta protegida
+  { path: 'blog-editar/:id', component: BlogEditarComponent, canActivate: [AuthGuard] },
   { path: 'crear-blog', component: CrearBlogComponent, canActivate: [AuthGuard] },
   { path: 'experiences', component: ExperiencesComponent, canActivate: [AuthGuard] },
+  { path: 'experiencias-crear', component: ExperienciasCrearComponent, canActivate: [AuthGuard] },
+  { path: 'experiencias-editar/:id', component: ExperienciasEditarComponent, canActivate: [AuthGuard] }, 
   { path: 'images', component: ImagesComponent, canActivate: [AuthGuard] },
   { path: 'mensajes', component: MensajesComponent, canActivate: [AuthGuard] },
   { path: 'projects', component: ProjectsComponent, canActivate: [AuthGuard] },

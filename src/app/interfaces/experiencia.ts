@@ -5,7 +5,7 @@ export interface Experience {
     startDate: string;
     endDate?: string | null;
     description?: string;
-    isActive: boolean;
+    isActive: number;
     createdAt: string;
   }
   

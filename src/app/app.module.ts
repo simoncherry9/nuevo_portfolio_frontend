@@ -43,7 +43,6 @@ import { ExperienciasCrearComponent } from './components/experiencias-crear/expe
     SociallinksComponent,
     TestimonialsComponent,
     BlogVerComponent,
-    ExperienciasEditarComponent,
     ExperienciasCrearComponent,
     
   ],
@@ -61,6 +60,7 @@ import { ExperienciasCrearComponent } from './components/experiencias-crear/expe
     CrearBlogComponent,
     BlogEditarComponent,
     ExperiencesComponent,
+    ExperienciasEditarComponent,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true },  

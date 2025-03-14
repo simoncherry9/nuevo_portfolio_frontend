@@ -42,7 +42,7 @@ export class ExperiencesComponent implements OnInit {
 
   editExperience(id: number): void {
     // Redirige a la página de edición con el ID de la experiencia
-    this.router.navigate([`/experiencia-editar/${id}`]);
+    this.router.navigate([`/experiencias-editar/${id}`]);
   }
 
   deleteExperience(id: number): void {
@@ -81,6 +81,6 @@ export class ExperiencesComponent implements OnInit {
 
   // Nueva función para redirigir a la página de creación de experiencia
   addExperience(): void {
-    this.router.navigate(['/experiencia-crear']);  // Redirige a la página de creación de experiencia
+    this.router.navigate(['/experiencias-crear']);  // Redirige a la página de creación de experiencia
   }
 }
