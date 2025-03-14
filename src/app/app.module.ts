@@ -43,7 +43,6 @@ import { ProfileEditComponent } from './components/profile-edit/profile-edit.com
     SociallinksComponent,
     TestimonialsComponent,
     BlogVerComponent,
-    ProfileEditComponent,
   ],
   imports: [
     SweetAlert2Module.forRoot(),
@@ -62,6 +61,7 @@ import { ProfileEditComponent } from './components/profile-edit/profile-edit.com
     ExperienciasEditarComponent,
     ExperienciasCrearComponent,
     ProfileComponent,
+    ProfileEditComponent,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true },  

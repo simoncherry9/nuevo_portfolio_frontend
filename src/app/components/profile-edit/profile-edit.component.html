@@ -1,1 +1,118 @@
-<p>profile-edit works!</p>
+<app-header></app-header>
+
+<div class="profile-edit-container">
+  <h2>Editar Perfil</h2>
+
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="profile-edit-form">
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input
+        id="nombre"
+        formControlName="nombre"
+        type="text"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': profileForm.get('nombre')?.invalid && profileForm.get('nombre')?.touched }"
+        placeholder="Introduce tu nombre"
+      />
+      <div *ngIf="profileForm.get('nombre')?.invalid && profileForm.get('nombre')?.touched" class="invalid-feedback">
+        El nombre es obligatorio y debe tener al menos 3 caracteres.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="apellido">Apellido</label>
+      <input
+        id="apellido"
+        formControlName="apellido"
+        type="text"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': profileForm.get('apellido')?.invalid && profileForm.get('apellido')?.touched }"
+        placeholder="Introduce tu apellido"
+      />
+      <div *ngIf="profileForm.get('apellido')?.invalid && profileForm.get('apellido')?.touched" class="invalid-feedback">
+        El apellido es obligatorio y debe tener al menos 3 caracteres.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="correo_electronico">Correo Electrónico</label>
+      <input
+        id="correo_electronico"
+        formControlName="correo_electronico"
+        type="email"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': profileForm.get('correo_electronico')?.invalid && profileForm.get('correo_electronico')?.touched }"
+        placeholder="Introduce tu correo electrónico"
+      />
+      <div *ngIf="profileForm.get('correo_electronico')?.invalid && profileForm.get('correo_electronico')?.touched" class="invalid-feedback">
+        El correo electrónico es obligatorio y debe ser válido.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="imageurl">URL de Imagen</label>
+      <input
+        id="imageurl"
+        formControlName="imageurl"
+        type="text"
+        class="form-control"
+        placeholder="Introduce una URL de imagen (opcional)"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="ciudad">Ciudad</label>
+      <input
+        id="ciudad"
+        formControlName="ciudad"
+        type="text"
+        class="form-control"
+        placeholder="Introduce tu ciudad (opcional)"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="provincia">Provincia</label>
+      <input
+        id="provincia"
+        formControlName="provincia"
+        type="text"
+        class="form-control"
+        placeholder="Introduce tu provincia (opcional)"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="pais">País</label>
+      <input
+        id="pais"
+        formControlName="pais"
+        type="text"
+        class="form-control"
+        placeholder="Introduce tu país (opcional)"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="descripcion">Descripción</label>
+      <textarea
+        id="descripcion"
+        formControlName="descripcion"
+        class="form-control"
+        rows="4"
+        placeholder="Escribe una descripción sobre ti (opcional)"
+      ></textarea>
+    </div>
+
+    <div class="buttons">
+        <button type="submit" [disabled]="profileForm.invalid" aria-label="Guardar cambios">
+          <i class="fas fa-save"></i>
+        </button>
+        <button type="button" (click)="cancelarEdicion()" aria-label="Cancelar edición">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+  </form>
+</div>
+
+<app-footer></app-footer>
